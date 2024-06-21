@@ -1,0 +1,52 @@
+body {
+  @include fluid-text(18, 16);
+
+    font-family: var(--font-family-base);
+    font-weight: 400;
+  
+    line-height: 1.28;
+    color: var(--color-main);
+    background-color: var( --background-color);
+  }
+  
+  a,
+  button,
+  input,
+  textarea,
+  svg * {
+    transition-duration: var(--transition-duration);
+    font-family: inherit;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  // Typography
+  h1, h2, h3, h4 {
+    font-family: var(--font-family-title);
+    font-weight: 400;
+    color: inherit;
+  }
+
+  h1, .h1 {
+    @include fluid-text(60, 36);
+  }
+  
+  h2, .h2 {
+    @include fluid-text(54, 36);
+  }
+  
+  h3, .h3 {
+    @include fluid-text(36, 28);
+  }
+  
+  h4, .h4 {
+    @include fluid-text(22, 16);
+  }
+
+  .comments {
+    @include fluid-text(20, 18);
+  }
+

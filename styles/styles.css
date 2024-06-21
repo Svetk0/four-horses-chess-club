@@ -1,0 +1,344 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Merriweather";
+  src: url("../fonts/Merriweather-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Golos Text";
+  src: url("../fonts/GolosText-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Golos Text";
+  src: url("../fonts/GolosText-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Golos Text";
+  src: url("../fonts/GolosText-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-family-title: "Merriweather", serif;
+  --font-family-base: "Golos Text", sans-serif;
+  --color-main: #313131;
+  --color-light: #FFFFFF;
+  --color-accent: #F54932;
+  --color-accent-alt: #3057A2;
+  --background-color: #FFFFFF;
+  --background-color-alt: #E9DED4;
+  --button-color-light: #FFFFFF;
+  --button-color-dark: #1F1F1F;
+  --button-color-accent: #FBCE51;
+  --button-color-accent-alt: #3057A2;
+  --button-main-radius: 66px;
+  --border-alt-radius: 62px;
+  --button-main-height: 72px;
+  --button-main-mobile-height: 47px;
+  --button-alt-height: 35px;
+  --container-width: 1222px;
+  --container-padding-x: 20px;
+  --desktop-section-padding-y: 100px;
+  --mobile-section-padding-y: 60px;
+  --transition-duration: 0.2s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 375px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+body {
+  font-size: clamp(16px, 1.25px, 18px);
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-main);
+  background-color: var(--background-color);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-title);
+  font-weight: 400;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: clamp(36px, 4.1666666667px, 60px);
+}
+
+h2, .h2 {
+  font-size: clamp(36px, 3.75px, 54px);
+}
+
+h3, .h3 {
+  font-size: clamp(28px, 2.5px, 36px);
+}
+
+h4, .h4 {
+  font-size: clamp(16px, 1.5277777778px, 22px);
+}
+
+.comments {
+  font-size: clamp(18px, 1.3888888889px, 20px);
+}
+
+.button {
+  width: 170px;
+  border-radius: var(--border-radius-small);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 0;
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.header {
+  padding-top: 26px;
+}
+@media (max-width: 375px) {
+  .header {
+    padding-top: 18px;
+  }
+}
+.header__logo {
+  width: 245px;
+  height: 36px;
+}
+@media (max-width: 375px) {
+  .header__logo {
+    max-width: 213px;
+    max-height: 32px;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--section-padding-y);
+}
+@media ((max-width: 1366px) and (min-width: 376px)) {
+  .hero {
+    row-gap: 60px;
+  }
+}
+
+.test {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(12, 6, 24);
+}
+
+.button {
+  background-color: var(--color-light);
+}
+
+h1 {
+  font-size: clamp(40px, 6.25px, 90px);
+}/*# sourceMappingURL=styles.css.map */

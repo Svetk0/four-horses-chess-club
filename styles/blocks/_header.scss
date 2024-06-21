@@ -1,0 +1,19 @@
+.header {
+    padding-top: 26px;
+
+  
+    @include mobile {
+        padding-top: 18px;
+    }
+
+ 
+
+    &__logo {
+        width: 245px;
+        height: 36px;
+        @include mobile {
+            max-width: 213px;
+            max-height: 32px;
+        }
+    }
+}

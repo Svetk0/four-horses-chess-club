@@ -1,0 +1,37 @@
+:root {
+
+  // overall
+  --font-family-title: 'Merriweather', serif;
+  --font-family-base: 'Golos Text', sans-serif;
+
+  --color-main: #313131;
+  --color-light: #FFFFFF;
+  --color-accent: #F54932;
+  --color-accent-alt: #3057A2;
+
+  --background-color: #FFFFFF;
+  --background-color-alt: #E9DED4;
+
+// buttons
+  --button-color-light: #FFFFFF;
+  --button-color-dark: #1F1F1F;
+  --button-color-accent: #FBCE51;
+  --button-color-accent-alt: #3057A2;
+
+  --button-main-radius: 66px;
+  --border-alt-radius: 62px;
+
+  --button-main-height: 72px;
+  --button-main-mobile-height: 47px;
+  --button-alt-height: 35px;
+
+
+// sizes and paddings
+  --container-width: 1222px;
+  --container-padding-x: 20px;
+
+  --desktop-section-padding-y: 100px;
+  --mobile-section-padding-y: 60px;
+
+  --transition-duration: 0.2s;
+}
