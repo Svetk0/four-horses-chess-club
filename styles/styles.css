@@ -243,6 +243,7 @@ body {
   line-height: 1.28;
   color: var(--color-main);
   background-color: var(--background-color);
+  margin-inline: auto;
 }
 
 a,
@@ -295,10 +296,6 @@ h4, .h4 {
   padding: 10px 0;
 }
 
-.section {
-  padding-block: var(--section-padding-y);
-}
-
 .header {
   padding-top: 26px;
 }
@@ -318,6 +315,23 @@ h4, .h4 {
   }
 }
 
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.introduction {
+  background-image: url(/test-projects/yandex-crowd/images/bg-title.png);
+  background-size: auto;
+  background-position: 50% 50%;
+  min-height: 700px;
+}
+@media (max-width: 375px) {
+  .introduction {
+    background-image: url(/test-projects/yandex-crowd/images/bg-title-mobile.png);
+    min-height: none;
+  }
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -327,18 +341,4 @@ h4, .h4 {
   .hero {
     row-gap: 60px;
   }
-}
-
-.test {
-  width: 300px;
-  height: 300px;
-  background-color: rgb(12, 6, 24);
-}
-
-.button {
-  background-color: var(--color-light);
-}
-
-h1 {
-  font-size: clamp(40px, 6.25px, 90px);
 }/*# sourceMappingURL=styles.css.map */

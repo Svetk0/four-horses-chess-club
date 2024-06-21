@@ -11,9 +11,20 @@
     &__logo {
         width: 245px;
         height: 36px;
+    
         @include mobile {
             max-width: 213px;
             max-height: 32px;
         }
     }
 }
+
+// .logo__image {
+//     width: 245px;
+//     height: 36px;
+
+//     @include mobile {
+//         max-width: 213px;
+//         max-height: 32px;
+//     }
+// }
