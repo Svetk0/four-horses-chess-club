@@ -33,6 +33,8 @@ body {
 
   h1, .h1 {
     @include fluid-text(60, 36);
+    @include fluid-line-height(66,39);
+
   }
   
   h2, .h2 {

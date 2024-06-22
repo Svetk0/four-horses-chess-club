@@ -13,13 +13,15 @@
   --background-color-alt: #E9DED4;
 
 // buttons
-  --button-color-light: #FFFFFF;
+  --button-color-light: #ffffffd2;
   --button-color-dark: #1F1F1F;
   --button-color-accent: #FBCE51;
   --button-color-accent-alt: #3057A2;
 
   --button-main-radius: 66px;
   --border-alt-radius: 62px;
+
+  --border-button: 2px solid var(  --button-color-dark);
 
   --button-main-height: 72px;
   --button-main-mobile-height: 47px;

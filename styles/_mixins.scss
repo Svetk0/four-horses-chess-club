@@ -1,7 +1,9 @@
 @mixin fluid-text($max:48,$min:16) {
-    font-size: clamp(#{$min}px, #{$max/1440*100}px, #{$max}px);
+    font-size: clamp(#{$min}px, #{calc($max / 1366*100)}vw, #{$max}px);
 }
-
+@mixin fluid-line-height($max:48,$min:16) {
+  line-height: clamp(#{$min}px, #{calc($max / 1366*100)}vw, #{$max}px);
+}
 @mixin reset-link {
     color: inherit;
     cursor: pointer;

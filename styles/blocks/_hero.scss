@@ -1,21 +1,62 @@
 .introduction {
-  background-image: url(/test-projects/yandex-crowd/images/bg-title.png);
+  background-image: url(/test-projects/yandex-crowd/images/bg-title-desktop.png);
    background-size: auto;
-   background-position: 50% 50%;
+   background-position: 50% 40%;
    min-height: 700px;
+   background-repeat: no-repeat;
 
    @include mobile {
     background-image: url(/test-projects/yandex-crowd/images/bg-title-mobile.png);
-    min-height: none;
+    min-height: 812px;
    }
-  //background-color: aquamarine;
+   @include desktop-above {
+    background-image: url(/test-projects/yandex-crowd/images/bg-title.png);
+    min-height: 812px;
+   }
+
 }
 .hero {
+  max-width: 542px;
+  margin-top: 40px;
     display: flex;
     flex-direction: column;
-    row-gap: var(--section-padding-y);
-  
+
     @include desktop {
-      row-gap: 60px;
+      margin-top: 62px;
     }
+   
+    &__title {
+      text-align: left;
+      text-transform: uppercase;
+      
+      & span {
+        display: block;
+        text-align: center;
+      }
+      & p {
+        text-align: right;
+      }
+    }
+
+    &__description {
+      margin-top: 24px;
+      text-align: left;
+
+      @include desktop {
+        text-align: center;
+      }
+    }
+
+    &__buttons-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 40px 0;
+      
+
+    }
+
 }
