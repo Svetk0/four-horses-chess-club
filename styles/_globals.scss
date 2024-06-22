@@ -25,9 +25,10 @@ body {
 
 
   // Typography
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4,   .h1, .h2, .h3, .h4 {
     font-family: var(--font-family-title);
     font-weight: 400;
+    text-transform: uppercase;
     color: inherit;
   }
 
@@ -46,7 +47,7 @@ body {
   }
   
   h4, .h4 {
-    @include fluid-text(22, 16);
+    @include fluid-text(24, 16);
   }
 
   .comments {

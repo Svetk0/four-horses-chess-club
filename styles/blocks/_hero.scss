@@ -1,4 +1,7 @@
 .introduction {
+  margin: 0;
+  padding: 0;
+  position: relative;
   background-image: url(/test-projects/yandex-crowd/images/bg-title-desktop.png);
    background-size: auto;
    background-position: 50% 40%;
@@ -11,7 +14,7 @@
    }
    @include desktop-above {
     background-image: url(/test-projects/yandex-crowd/images/bg-title.png);
-    min-height: 812px;
+    //min-height: 812px;
    }
 
 }
@@ -27,7 +30,6 @@
    
     &__title {
       text-align: left;
-      text-transform: uppercase;
       
       & span {
         display: block;

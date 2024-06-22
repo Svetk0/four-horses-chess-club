@@ -1,0 +1,43 @@
+.running-line {
+    position: absolute;
+  
+    bottom:-10px;
+    z-index: 9999;
+    width: 100vw;
+    height: 38px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    background-color: var(  --color-accent);
+    color: var(  --color-light);
+    overflow: hidden;
+    margin-top: auto;
+    white-space: nowrap;
+    align-items: center;
+
+
+    @include desktop {
+        height: 60px;
+        bottom:-60px;
+    }
+    @include desktop-above {
+        height: 60px;
+        bottom:-60px;
+    }
+}
+
+.running-line  div{
+    animation: running-text 20s linear infinite;
+}
+// .running-line p {
+//     display: inline-block;
+// }
+
+@keyframes running-text {
+    0% {
+        transform: translateX(30%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
