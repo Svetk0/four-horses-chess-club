@@ -52,5 +52,6 @@ body {
 
   .comments {
     @include fluid-text(20, 18);
+    color: var(  --color-accent-alt);
   }
 
