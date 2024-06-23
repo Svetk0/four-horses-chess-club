@@ -1,0 +1,49 @@
+.overall-info {
+    margin-top: 86px;
+
+    @include desktop {
+        margin-top: 140px;
+    }
+
+    &__h3 {
+        text-align: left;
+
+        @include desktop {
+            min-width: 764px;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+   
+      @include desktop {
+        display: grid;
+        justify-content: space-between;
+           grid-template-columns: 1fr 1fr;
+    }
+
+        & span {
+           color: var(--color-accent);
+           font-weight: 700;
+        }
+
+        & img {
+            grid-row: span 2;
+           width: 335px;
+           height: 213px;
+           justify-self: right;
+
+           @include desktop {
+            grid-row: span 2;
+            width: 394px;
+            height: 250px;
+            justify-self: right;
+        }
+         
+        }
+    }
+
+
+}

@@ -10,8 +10,13 @@ $mobile: 375px;
     }
 }
 
+// @mixin desktop {
+//     @media ((max-width: $desktop) and (min-width: $mobile-above)) {
+//         @content;
+//     }
+// }
 @mixin desktop {
-    @media ((max-width: $desktop) and (min-width: $mobile-above)) {
+    @media ( min-width: $mobile-above) {
         @content;
     }
 }
