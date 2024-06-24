@@ -1,43 +1,54 @@
-
 .hero {
-  max-width: 542px;
+  width: 375px;
   margin-top: 40px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    width: 542px;
+    margin-top: 62px;
+  }
+
+  @include tablet {
+    width: 400px;
+
+  }
+
+  &__title {
+    text-align: left;
+
+    & span {
+      display: block;
+      text-align: center;
+    }
+
+    & p {
+      text-align: right;
+    }
+  }
+
+  &__description {
+    margin-top: 24px;
+    text-align: left;
 
     @include desktop {
-      margin-top: 62px;
+      text-align: center;
     }
-   
-    &__title {
-      text-align: left;
-      
-      & span {
-        display: block;
-        text-align: center;
-      }
-      & p {
-        text-align: right;
-      }
-    }
+  }
 
-    &__description {
-      margin-top: 24px;
-      text-align: left;
+  &__buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 40px 0;
 
-      @include desktop {
-        text-align: center;
-      }
+    @include tablet {
+      // flex-direction: column;
+      align-self: flex-start;
     }
-
-    &__buttons-wrapper {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin: 40px 0;
-    }
+  }
 
 }
