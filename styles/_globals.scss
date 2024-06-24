@@ -17,7 +17,7 @@ body {
     padding-inline: var(--container-padding-x);
 
     @include tablet {
-      padding-inline: clamp(var(--container-padding-x), 10vw ,60px);
+      padding-inline: clamp(var(--container-padding-x), 5vw ,50px);
     }
     @include desktop {
       width: calc(var(--container-width) + var(--container-padding-x) * 2);

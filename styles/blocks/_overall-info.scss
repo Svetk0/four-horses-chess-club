@@ -50,7 +50,7 @@
 
 
         @include desktop {
-            width: 704px;
+            max-width: 704px;
         }
     }
 
@@ -86,103 +86,7 @@
       
     }
 
-    table {
-        margin-top: 44px;
-        width: 100%;
-        border-collapse: collapse;
-        border: 0;
-        font-size: 20px;
-        line-height: 24px;
-        font-weight: 600;
-
-        @include mobile {
-            margin-top: 20px;
-        }
-
-
-        tr {
-            height: 56px;
-
-            @include mobile {
-                display: inline-block;
-                border-bottom: var(--border-table-inner);
-            }
-        }
-
-        th {
-            font-weight: 400;
-            width: 322px;
-            color: var(  --color-table);
-        }
-
-        th,
-        td {
-            border: var(--border-table-inner);
-            padding-inline: 16px;
-            padding-block: auto;
-            text-align: left;
-
-
-            @include mobile {
-                display: inline-block;
-                border: none;
-            }
-
-
-        & span {
-            text-decoration: line-through;
-            text-decoration-color: var(--color-accent);
-            color: var(--color-main);
-            font-weight: 700;
-            margin-right: 12px;
-        }
-        }
-
-
-    }
-
-    .border-none {
-        border-collapse: collapse;
-        border: none;
-    }
-
-    .border-none tr:first-child td {
-        border-top: none;
-    }
-
-    .border-none tr:last-child td {
-        border-bottom: none;
-    }
-
-    .border-none tr td:first-child {
-        border-left: none;
-    }
-
-    .border-none tr td:last-child {
-        border-right: none;
-    }
-
-    .border-none tr:first-child th {
-        border-top: none;
-    }
-
-    .border-none tr:last-child th {
-        border-bottom: none;
-    }
-
-    .border-none tr th:first-child {
-        border-left: none;
-    }
-
-    .border-none tr th:last-child {
-        border-right: none;
-    }
-
-    .border-none tr:last-child {
-        @include mobile {
-            border-bottom: none;
-        }
-    }
+   
 
     &__comment {
         margin-top: 30px;
