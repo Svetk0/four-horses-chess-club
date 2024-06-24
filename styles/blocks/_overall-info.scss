@@ -24,16 +24,16 @@
             grid-template-columns: 1fr 1fr;
         }
 
+       
         & span {
             color: var(--color-accent);
             font-weight: 700;
         }
 
         & img {
-
             width: 335px;
             height: 213px;
-            justify-self: right;
+          margin-inline: auto;
 
             @include desktop {
                 grid-row: span 2;
@@ -46,6 +46,7 @@
     .description__content {
         display: flex;
         flex-direction: column;
+        flex: 1;
 
 
         @include desktop {
@@ -73,25 +74,20 @@
         }
 
         & img {
-            width: 100%;
-        }
-
-        &__img-rect {
-            display: block;
             width: 335px;
-            height: 213px;
-
+            height: 402px;
+            margin-inline: auto;
 
             @include desktop {
                 width: 474px;
                 height: 528px;
-                margin: 47px 27px 35px 27px;
             }
         }
+      
     }
 
     table {
-        margin: 44px 0 32px 0;
+        margin-top: 44px;
         width: 100%;
         border-collapse: collapse;
         border: 0;
@@ -100,7 +96,7 @@
         font-weight: 600;
 
         @include mobile {
-            margin: 20px 0;
+            margin-top: 20px;
         }
 
 
@@ -116,6 +112,7 @@
         th {
             font-weight: 400;
             width: 322px;
+            color: var(  --color-table);
         }
 
         th,
@@ -130,14 +127,17 @@
                 display: inline-block;
                 border: none;
             }
-        }
+
 
         & span {
             text-decoration: line-through;
-            color: var(--color-accent);
+            text-decoration-color: var(--color-accent);
+            color: var(--color-main);
             font-weight: 700;
             margin-right: 12px;
         }
+        }
+
 
     }
 
@@ -181,6 +181,14 @@
     .border-none tr:last-child {
         @include mobile {
             border-bottom: none;
+        }
+    }
+
+    &__comment {
+        margin-top: 30px;
+
+        @include desktop {
+            margin-top: 38px;
         }
     }
 }

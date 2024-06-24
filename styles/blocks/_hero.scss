@@ -1,18 +1,17 @@
 .hero {
- //width: 335px;
  @include fluid-width(542,335);
   margin-top: 40px;
+  padding-bottom: 291px;
   display: flex;
   flex-direction: column;
 
   @include desktop {
-    //width: 542px;
     margin-top: 62px;
+    padding-bottom: 132px;
   }
 
   @include tablet {
-    //width: 400px;
-
+    padding-bottom: 132px;
   }
 
   &__title {
@@ -47,8 +46,9 @@
     margin: 40px 0;
 
     @include tablet {
-      // flex-direction: column;
-      align-self: flex-start;
+       flex-direction: column;
+      
+      align-items: center;
     }
   }
 

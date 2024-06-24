@@ -1,6 +1,6 @@
 .button {
-    width: 263px;
-    height: 72px;
+    width: 100%;
+    height: 47px;
     border-radius: var(--button-main-radius);
     border: none;
     padding-inline: 43px;
@@ -11,38 +11,41 @@
     line-height: 20.8px;
     text-align: center;
 
-    color:var(  --color-light);
+    color: var(--color-light);
     background-color: var(--button-color-dark);
     cursor: pointer;
     transition: var(--transition-duration);
 
     &:hover {
-        color:var(   --button-color-dark);
-        background-color: var(   --button-color-accent);
+        color: var(--button-color-dark);
+        background-color: var(--button-color-accent);
     }
 
-    @include mobile {
-        width: 100%;
-        height: 47px;
-    }
-    @include tablet {
-        width: 100%;
-        height: 47px;
+
+
+    @include desktop {
+        width: 263px;
+        height: 72px;
     }
 }
 
 .button-alt {
-    border: var( --border-button);
+    border: var(--border-button);
     background-color: transparent;
-    color:var(   --button-color-dark);
+    color: var(--button-color-dark);
 
     &:hover {
-        color:var(  --color-light);
+        color: var(--color-light);
         background-color: var(--button-color-dark);
     }
 
     @include mobile {
-        background-color: var( --button-color-light);
+        background-color: var(--button-color-light);
+        border: none;
+    }
+
+    @include tablet {
+        background-color: var(--button-color-light);
         border: none;
     }
 }
