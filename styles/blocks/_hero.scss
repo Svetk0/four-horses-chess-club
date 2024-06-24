@@ -1,16 +1,17 @@
 .hero {
-  width: 375px;
+ //width: 335px;
+ @include fluid-width(542,335);
   margin-top: 40px;
   display: flex;
   flex-direction: column;
 
   @include desktop {
-    width: 542px;
+    //width: 542px;
     margin-top: 62px;
   }
 
   @include tablet {
-    width: 400px;
+    //width: 400px;
 
   }
 

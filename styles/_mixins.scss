@@ -4,6 +4,11 @@
 @mixin fluid-line-height($max:48,$min:16) {
   line-height: clamp(#{$min}px, #{calc($max / 1366*100)}vw, #{$max}px);
 }
+
+@mixin fluid-width($max:48,$min:16) {
+  width: clamp(#{$min}px, #{calc($max / 1222*100)}vw, #{$max}px);
+}
+
 @mixin reset-link {
     color: inherit;
     cursor: pointer;
