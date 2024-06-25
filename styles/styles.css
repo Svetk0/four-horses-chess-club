@@ -391,6 +391,7 @@ h4, .h4 {
 .arrow svg {
   width: 10px;
   height: 18px;
+  fill: none;
 }
 @media (min-width: 1262px) {
   .arrow svg {
@@ -400,6 +401,8 @@ h4, .h4 {
 }
 .arrow path {
   stroke: var(--color-light);
+  stroke-width: 2px;
+  stroke-linecap: square;
 }
 
 .introduction {

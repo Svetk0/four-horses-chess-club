@@ -80,6 +80,7 @@
     & svg {
         width: 10px;
         height: 18px;
+        fill: none;
 
         @include desktop {
             width: 12px;
@@ -88,5 +89,7 @@
     }
     & path {
         stroke: var(  --color-light);
+        stroke-width: 2px;
+        stroke-linecap:square;
     }
 }
