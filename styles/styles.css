@@ -799,4 +799,36 @@ table td {
   .border-none tr:last-child {
     border-bottom: none;
   }
+}
+
+.participants__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.participants .person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.participants .person__img {
+  width: 244px;
+  height: 244px;
+}
+@media (min-width: 1262px) {
+  .participants .person__img {
+    width: 320px;
+    height: 320px;
+  }
+}
+.participants .person__name {
+  font-weight: 600;
+  font-size: 24px;
+  margin: 28px 0 6px 0;
+}
+.participants .person__position {
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 20px;
 }/*# sourceMappingURL=styles.css.map */
