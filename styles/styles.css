@@ -260,6 +260,15 @@ body {
   }
 }
 
+.section {
+  padding-top: 120px;
+}
+@media (min-width: 1262px) {
+  .section {
+    padding-top: 200px;
+  }
+}
+
 a,
 button,
 input,
@@ -443,10 +452,6 @@ h4, .h4 {
     max-width: 213px;
     max-height: 32px;
   }
-}
-
-.section {
-  padding-block: var(--section-padding-y);
 }
 
 .hero {

@@ -9,7 +9,7 @@ body {
     margin-inline: auto;
   }
 
-  // container
+  // container, section
   .container {
     max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
     margin-inline: auto;
@@ -18,8 +18,14 @@ body {
     @include tablet {
       padding-inline: clamp(var(--container-padding-x), 3vw ,40px);
     }
-
   }
+
+  .section {
+    padding-top: 120px;
+    @include desktop {
+      padding-top: 200px;
+    }
+}
 
   // elements
   a,
