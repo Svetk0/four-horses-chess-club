@@ -204,6 +204,7 @@ svg * {
   --button-color-light: #ffffffd2;
   --button-color-dark: #1F1F1F;
   --button-color-accent: #FBCE51;
+  --button-color-disabled:#D6D6D6;
   --button-color-accent-alt: #3057A2;
   --button-main-radius: 66px;
   --border-alt-radius: 62px;
@@ -319,9 +320,17 @@ h4, .h4 {
   cursor: pointer;
   transition: var(--transition-duration);
 }
-.button:hover {
-  color: var(--button-color-dark);
-  background-color: var(--button-color-accent);
+@media (hover: hover) {
+  .button:hover:hover, .button:hover:active {
+    color: var(--button-color-dark);
+    background-color: var(--button-color-accent);
+  }
+}
+@media (hover: none) {
+  .button:active:hover, .button:active:active {
+    color: var(--button-color-dark);
+    background-color: var(--button-color-accent);
+  }
 }
 @media (min-width: 1262px) {
   .button {
@@ -331,45 +340,86 @@ h4, .h4 {
 }
 
 .button-alt {
-  border: var(--border-button);
-  background-color: transparent;
+  background-color: var(--button-color-light);
+  border: none;
   color: var(--button-color-dark);
 }
-.button-alt:hover {
-  color: var(--color-light);
-  background-color: var(--button-color-dark);
-}
-@media (max-width: 375px) {
-  .button-alt {
-    background-color: var(--button-color-light);
-    border: none;
+@media (hover: hover) {
+  .button-alt:hover:hover, .button-alt:hover:active {
+    color: var(--color-light);
+    background-color: var(--button-color-dark);
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
-  .button-alt {
-    background-color: var(--button-color-light);
-    border: none;
+@media (hover: none) {
+  .button-alt:active:hover, .button-alt:active:active {
+    color: var(--color-light);
+    background-color: var(--button-color-dark);
   }
+}
+@media (min-width: 1262px) {
+  .button-alt {
+    border: var(--border-button);
+    background-color: transparent;
+  }
+}
+
+.button-carousel {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-main);
+  transition: var(--transition-duration);
+  cursor: pointer;
+}
+@media (min-width: 1262px) {
+  .button-carousel {
+    width: 44px;
+    height: 44px;
+  }
+}
+.button-carousel:hover {
+  background-color: var(--button-color-accent);
+}
+.button-carousel__disabled {
+  background-color: var(--button-color-disabled);
+  cursor: not-allowed;
+}
+
+.arrow svg {
+  width: 10px;
+  height: 18px;
+}
+@media (min-width: 1262px) {
+  .arrow svg {
+    width: 12px;
+    height: 20px;
+  }
+}
+.arrow path {
+  stroke: var(--color-light);
 }
 
 .introduction {
   margin: 0;
   padding: 0;
   position: relative;
-  background-image: url(/test-projects/yandex-crowd/images/bg-title-desktop.png);
+  background-image: url("../images/bg-title-desktop.png");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
 @media (max-width: 375px) {
   .introduction {
-    background-image: url(/test-projects/yandex-crowd/images/bg-title-mobile.png);
+    background-image: url("../images/bg-title-mobile.png");
     min-height: 812px;
   }
 }
 @media (min-width: 1367px) {
   .introduction {
-    background-image: url(/test-projects/yandex-crowd/images/bg-title.png);
+    background-image: url("../images/bg-title.png");
   }
 }
 
@@ -597,16 +647,15 @@ table {
     margin-top: 20px;
   }
 }
+table tr {
+  height: 56px;
+}
 @media (max-width: 375px) {
   table tr {
     width: 100%;
     display: inline-block;
     border-bottom: var(--border-table-inner);
     vertical-align: middle;
-    height: 56px;
-    margin-block: 16px;
-    align-self: center;
-    justify-self: center;
   }
 }
 @media ((min-width: 376px) and (max-width: 1261px)) {
@@ -615,8 +664,6 @@ table {
     display: inline-block;
     border-bottom: var(--border-table-inner);
     vertical-align: middle;
-    min-height: 56px;
-    max-height: 92px;
   }
 }
 table th {
