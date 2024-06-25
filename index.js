@@ -23,5 +23,7 @@ const createCarouselButtons = () => {
     createArrow(arrowRight, '.arrow-right');
     createArrow(arrowLeft,'.arrow-left');
 }
+
+// ------ START INITIALIZING ------
 activateRunningBlock();
 createCarouselButtons();
