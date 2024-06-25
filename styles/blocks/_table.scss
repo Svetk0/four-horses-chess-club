@@ -21,6 +21,12 @@ table {
             border-bottom: var(--border-table-inner);
             vertical-align: middle;
         }
+        @include tablet {
+            width: 100%;
+            display: inline-block;
+            border-bottom: var(--border-table-inner);
+            vertical-align: middle;
+        }
     }
 
     th {
@@ -38,6 +44,13 @@ table {
 
 
         @include mobile {
+            display: inline;
+            border: none;
+            vertical-align: middle;
+            white-space: nowrap;
+            padding-inline: 6px;
+        }
+        @include tablet {
             display: inline;
             border: none;
             vertical-align: middle;
@@ -93,6 +106,9 @@ table {
 
 .border-none tr:last-child {
     @include mobile {
+        border-bottom: none;
+    }
+    @include tablet {
         border-bottom: none;
     }
 }

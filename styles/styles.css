@@ -608,6 +608,14 @@ table tr {
     vertical-align: middle;
   }
 }
+@media ((min-width: 376px) and (max-width: 1261px)) {
+  table tr {
+    width: 100%;
+    display: inline-block;
+    border-bottom: var(--border-table-inner);
+    vertical-align: middle;
+  }
+}
 table th {
   font-weight: 400;
   width: 322px;
@@ -621,6 +629,16 @@ table td {
   text-align: left;
 }
 @media (max-width: 375px) {
+  table th,
+  table td {
+    display: inline;
+    border: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding-inline: 6px;
+  }
+}
+@media ((min-width: 376px) and (max-width: 1261px)) {
   table th,
   table td {
     display: inline;
@@ -677,6 +695,11 @@ table td {
 }
 
 @media (max-width: 375px) {
+  .border-none tr:last-child {
+    border-bottom: none;
+  }
+}
+@media ((min-width: 376px) and (max-width: 1261px)) {
   .border-none tr:last-child {
     border-bottom: none;
   }
