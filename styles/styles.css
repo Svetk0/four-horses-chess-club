@@ -597,15 +597,16 @@ table {
     margin-top: 20px;
   }
 }
-table tr {
-  height: 56px;
-}
 @media (max-width: 375px) {
   table tr {
     width: 100%;
     display: inline-block;
     border-bottom: var(--border-table-inner);
     vertical-align: middle;
+    height: 56px;
+    margin-block: 16px;
+    align-self: center;
+    justify-self: center;
   }
 }
 @media ((min-width: 376px) and (max-width: 1261px)) {
@@ -614,6 +615,8 @@ table tr {
     display: inline-block;
     border-bottom: var(--border-table-inner);
     vertical-align: middle;
+    min-height: 56px;
+    max-height: 92px;
   }
 }
 table th {
