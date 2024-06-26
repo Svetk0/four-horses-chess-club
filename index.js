@@ -1,10 +1,11 @@
-
+// ---- RUNNING LINE -----
 const activateRunningBlock = () => {
     const text =  'Дело помощи утопающим — дело рук самих утопающих! &middot Шахматы двигают вперед не только культуру, но и экономику! &middot Лед тронулся, господа присяжные заседатели!';
     const runningBlock = document.querySelector('#running-text');
     runningBlock.innerHTML = text;
 };
 
+// ---- CAROUSEL BUTTONS ----
 // create svg carousel buttons
 const createCarouselButtons = () => { 
     
@@ -23,6 +24,41 @@ const createCarouselButtons = () => {
     createArrow(arrowRight, '.arrow-right');
     createArrow(arrowLeft,'.arrow-left');
 }
+
+// ---- CAROUSEL PARTICIPANTS ----
+const pathImg = './images/participants/';
+const dataPersons = [
+    {
+        name: "Хозе-Рауль Капабланка",
+        rating: "Чемпион мира по шахматам",
+        img: "person-bg.png",
+    },
+    {
+        name: "Эммануил Ласкер",
+        rating: "Чемпион мира по шахматам",
+        img: "person-bg.png",
+    },
+    {
+        name: "Александр Алехин",
+        rating: "Чемпион мира по шахматам",
+        img: "./images/participants/person-bg.png",
+    },
+    {
+        name: "Арон Нимцович",
+        rating: "Чемпион мира по шахматам",
+        img: "./images/participants/person-bg.png",
+    },
+    {
+        name: "Рихард Рети",
+        rating: "Чемпион мира по шахматам",
+        img: "./images/participants/person-bg.png",
+    },
+    {
+        name: "Остап Бендер",
+        rating: "Гроссмейстер",
+        img: "./images/participants/person-bg.png",
+    },
+];
 
 // ------ START INITIALIZING ------
 activateRunningBlock();

@@ -4,7 +4,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
 
+    &__counter {
+       
+        & span {
+            opacity: 60%;
+        }
     }
 
     .person {
@@ -22,15 +28,18 @@
                 height: 320px;
             }
         }
+
         &__name {
             font-weight: 600;
             font-size: 24px;
             margin: 28px 0 6px 0;
         }
-        &__position {
+        
+        &__rating {
             font-weight: 400;
             font-size: 20px;
             margin-bottom: 20px;
+            opacity: 60%;
         }
     }
 }

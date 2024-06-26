@@ -720,7 +720,7 @@ table tr {
 table th {
   font-weight: 400;
   width: 322px;
-  color: var(--color-table);
+  opacity: 70%;
 }
 table th,
 table td {
@@ -811,6 +811,9 @@ table td {
   align-items: center;
   justify-content: center;
 }
+.participants__counter span {
+  opacity: 60%;
+}
 .participants .person {
   display: flex;
   flex-direction: column;
@@ -832,8 +835,9 @@ table td {
   font-size: 24px;
   margin: 28px 0 6px 0;
 }
-.participants .person__position {
+.participants .person__rating {
   font-weight: 400;
   font-size: 20px;
   margin-bottom: 20px;
+  opacity: 60%;
 }/*# sourceMappingURL=styles.css.map */
