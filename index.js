@@ -41,25 +41,71 @@ const dataPersons = [
     {
         name: "Александр Алехин",
         rating: "Чемпион мира по шахматам",
-        img: "./images/participants/person-bg.png",
+        img: "person-bg.png",
     },
     {
         name: "Арон Нимцович",
         rating: "Чемпион мира по шахматам",
-        img: "./images/participants/person-bg.png",
+        img: "person-bg.png",
     },
     {
         name: "Рихард Рети",
         rating: "Чемпион мира по шахматам",
-        img: "./images/participants/person-bg.png",
+        img: "person-bg.png",
     },
     {
         name: "Остап Бендер",
         rating: "Гроссмейстер",
-        img: "./images/participants/person-bg.png",
+        img: "person-bg.png",
     },
 ];
+
+const createDOMElem = (tagName, className) => { 
+    const newElement = document.createElement(tagName);
+    newElement.classList.add(className);
+    return newElement;
+}
+
+const createPersonCard = (i) => { 
+    const divPerson = createDOMElem('div', 'person');
+    const imgPerson = createDOMElem('img', 'person__img');
+    const namePerson = createDOMElem('div', 'person__name');
+    const ratingPerson = createDOMElem('div', 'person__rating');
+    const button = createDOMElem('button', 'button-info');
+    
+    //values
+    imgPerson.src = pathImg + dataPersons[i].img;
+    namePerson.innerHTML = dataPersons[i].name;
+    ratingPerson.innerHTML = dataPersons[i].rating;
+    button.innerHTML = 'Подробнее';
+
+    //order
+    divPerson.appendChild(imgPerson);
+    divPerson.appendChild(namePerson);
+    divPerson.appendChild(ratingPerson);
+    divPerson.appendChild(button);
+
+    return divPerson;
+}
+
+const insertPersonCards = (num) => { 
+    const targetWrapper = document.querySelector('.participants__content');
+    let i = 0;
+    let cards = [];
+    while (i < num) { 
+        cards[i] = createPersonCard(i);
+        cards.push(cards[i]);
+        targetWrapper.appendChild(cards[i]);
+        i++;
+      }
+    // const card1 = createPersonCard(i);
+    // targetWrapper.appendChild(card1);
+}
+
 
 // ------ START INITIALIZING ------
 activateRunningBlock();
 createCarouselButtons();
+insertPersonCards(dataPersons.length);
+
+
