@@ -49,7 +49,7 @@
         flex: 1;
 
         @include desktop {
-            width: 704px;
+            max-width: 704px;
         }
     }
 

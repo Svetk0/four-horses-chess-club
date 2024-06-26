@@ -642,7 +642,7 @@ h4, .h4 {
 }
 @media (min-width: 1262px) {
   .overall-info .description__content {
-    width: 704px;
+    max-width: 704px;
   }
 }
 .overall-info__description {
