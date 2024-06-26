@@ -2,8 +2,14 @@
 
     &__content {
         display: flex;
+        //gap: 32px;
         align-items: center;
         justify-content: center;
+        transition: 1s ease-in-out;
+
+        @include desktop {
+           gap: 20px;
+        }
     }
 
     &__counter {
@@ -14,10 +20,18 @@
     }
 
     .person {
-        display: flex;
+        width: 100%;
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
+        margin-inline: auto;
+        transition: 1s ease-in-out;
+
+        @include desktop {
+            width: 394px;
+        }
 
         &__img {
             width: 244px;
@@ -42,4 +56,21 @@
             opacity: 60%;
         }
     }
+    .pagination-circle {
+        width: 25px;
+        height: 25px;
+        border: 2px solid deepskyblue;
+        border-radius: 50%;
+    }
+    
+    .active {
+        display: flex;
+        background-color: purple;
+    }
+    
+    #bottom {
+        display: flex;
+        column-gap: 25px;
+    }
+    
 }
