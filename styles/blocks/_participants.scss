@@ -8,12 +8,12 @@
         transition: 1s ease-in-out;
 
         @include desktop {
-           gap: 20px;
+            gap: 20px;
         }
     }
 
     &__counter {
-       
+
         & span {
             opacity: 60%;
         }
@@ -33,6 +33,10 @@
             width: 394px;
         }
 
+        &--active {
+            display: flex;
+        }
+
         &__img {
             width: 244px;
             height: 244px;
@@ -48,7 +52,7 @@
             font-size: 24px;
             margin: 28px 0 6px 0;
         }
-        
+
         &__rating {
             font-weight: 400;
             font-size: 20px;
@@ -56,21 +60,21 @@
             opacity: 60%;
         }
     }
+
     .pagination-circle {
         width: 25px;
         height: 25px;
         border: 2px solid deepskyblue;
         border-radius: 50%;
     }
-    
-    .active {
-        display: flex;
+
+    .active-pagination {
         background-color: purple;
     }
-    
+
     #bottom {
         display: flex;
         column-gap: 25px;
     }
-    
+
 }

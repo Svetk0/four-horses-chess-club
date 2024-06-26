@@ -835,6 +835,9 @@ table td {
     width: 394px;
   }
 }
+.participants .person--active {
+  display: flex;
+}
 .participants .person__img {
   width: 244px;
   height: 244px;
@@ -862,8 +865,7 @@ table td {
   border: 2px solid deepskyblue;
   border-radius: 50%;
 }
-.participants .active {
-  display: flex;
+.participants .active-pagination {
   background-color: purple;
 }
 .participants #bottom {

@@ -128,13 +128,13 @@ function addPagination() {
 }
 
 function addActiveClass() {
-    paginationCircles[currentSlideIndex].classList.add("active");
-    slides[currentSlideIndex].classList.add("active");
+    paginationCircles[currentSlideIndex].classList.add("active-pagination");
+    slides[currentSlideIndex].classList.add("person--active");
 }
 
 function removeActiveClass() {
-    paginationCircles[currentSlideIndex].classList.remove("active");
-    slides[currentSlideIndex].classList.remove("active");
+    paginationCircles[currentSlideIndex].classList.remove("active-pagination");
+    slides[currentSlideIndex].classList.remove("person--active");
 }
 
 function showSlide() {
