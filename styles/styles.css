@@ -374,6 +374,11 @@ h4, .h4 {
 }
 
 .button-carousel {
+  color: inherit;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -400,23 +405,23 @@ h4, .h4 {
     background-color: var(--button-color-accent);
   }
 }
-.button-carousel__disabled {
+.button-carousel:disabled {
   background-color: var(--button-color-disabled);
   cursor: not-allowed;
 }
 
-.arrow svg {
+.svg svg {
   width: 10px;
   height: 18px;
   fill: none;
 }
 @media (min-width: 1262px) {
-  .arrow svg {
+  .svg svg {
     width: 12px;
     height: 20px;
   }
 }
-.arrow path {
+.svg path {
   stroke: var(--color-light);
   stroke-width: 2px;
   stroke-linecap: square;

@@ -47,7 +47,7 @@
 
 // CAROUSEL BUTTONS
 .button-carousel {
- 
+ @include reset-button;
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -65,14 +65,17 @@
     @include hover {
         background-color: var(   --button-color-accent);
     }
-
-    &__disabled {
+    &:disabled {
         background-color: var(   --button-color-disabled);
         cursor: not-allowed;
     }
+    // &__disabled {
+    //     background-color: var(   --button-color-disabled);
+    //     cursor: not-allowed;
+    // }
 }
 
-.arrow {
+.svg {
     
     & svg {
         width: 10px;
