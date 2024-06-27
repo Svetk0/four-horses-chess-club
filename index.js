@@ -87,7 +87,7 @@ const createPersonCard = (i) => {
 
     return divPerson;
 }
-let numShowedSlides = 1;
+
 
 const insertPersonCards = (num) => {
     let numShowedSlides = determineMediaScreen();
@@ -189,7 +189,6 @@ const insertPersonCards = (num) => {
         }
 
         function changeSlide(slideIndex) {
-          
             console.log('currentSlideIndex:', currentSlideIndex);
             removeActiveClass();
             currentSlideIndex = slideIndex;
