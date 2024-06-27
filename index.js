@@ -102,11 +102,17 @@ const insertPersonCards = (num) => {
 
 // CREATE SLIDER PARTICIPANTS
 const createSlider = () => {
+    
+
     const slider = document.getElementById("slider");
     const arrowLeft = document.querySelector(".arrow-left");
     const arrowRight = document.querySelector(".arrow-right");
     const slides = document.querySelectorAll(".person");
     const pagination = document.getElementById("pagination");
+    const counter = document.querySelector("#counter");
+    const counterIndex = createDOMElem('div', 'counter__index');
+    const counterLength = createDOMElem('div', 'counter__length');
+    createCounter();
 
     let currentSlideIndex = 0;
     const paginationCircles = [];
@@ -114,48 +120,75 @@ const createSlider = () => {
     slides[currentSlideIndex].classList.add("person--active");
     indicateCurrentSlide();
 
-    function indicateCurrentSlide() {
-        const counterIndex = document.querySelector("#counter-index");
-        const counterLength = document.querySelector("#counter-length");
+    function createCounter() {
+        counter.appendChild(counterIndex);
+        counter.appendChild(counterLength);
+    }
 
+    function indicateCurrentSlide() {
         counterIndex.textContent = currentSlideIndex + 1;
-        counterLength.textContent = '/'+slides.length;
+        counterLength.textContent = '/' + slides.length;
     }
 
     function createPaginationCircle() {
-        const div = document.createElement("div");
-        div.className = "pagination-circle";
+        const div = createDOMElem('div', 'pagination__circle');
         pagination.appendChild(div);
         paginationCircles.push(div);
     }
 
     function addPagination() {
         slides.forEach(createPaginationCircle);
-        paginationCircles[0].classList.add("active-pagination");
+        paginationCircles[0].classList.add("pagination--active");
         paginationCircles.forEach((circle, index) => {
             circle.addEventListener("click", () => changeSlide(index));
         });
     }
 
-    function addActiveClass() {
-        paginationCircles[currentSlideIndex].classList.add("active-pagination");
+    function addActiveClass(numActive) {
+        paginationCircles[currentSlideIndex].classList.add("pagination--active");
+        // for (let i = currentSlideIndex; i < numActive; i++) {
+        //     slides[i].classList.add("person--active");
+        //     console.log('add:', i);
+        //   }
         slides[currentSlideIndex].classList.add("person--active");
+        // slides[currentSlideIndex+numActive-1].classList.add("person--active");
     }
 
-    function removeActiveClass() {
-        paginationCircles[currentSlideIndex].classList.remove("active-pagination");
+    function removeActiveClass(numActive) {
+        paginationCircles[currentSlideIndex].classList.remove("pagination--active");
+        // for (let i = currentSlideIndex; i < numActive; i++) {
+        //     slides[i].classList.remove("person--active");
+        //     console.log('remove:', i);
+        //   }
         slides[currentSlideIndex].classList.remove("person--active");
+     
     }
 
     function showSlide() {
+
+        let windowInnerWidth = document.documentElement.clientWidth;
         //slider.style.transform = `translateX(-${currentSlideIndex * sliderWidth}px)`;
-        console.log('currentSlideIndex:', currentSlideIndex);
+        //console.log('windowInnerWidth:', windowInnerWidth);
+
+       
+
+
     }
 
     function changeSlide(slideIndex) {
-        removeActiveClass();
+        let windowInnerWidth = document.documentElement.clientWidth;
+        let numActiveSlides = 1;
+    
+        // if (windowInnerWidth > 700) { 
+        //      numActiveSlides = 2;
+        // }
+        // if (windowInnerWidth > 1200) { 
+        //      numActiveSlides = 3;
+        // }
+        //console.log('numActiveSlides:', numActiveSlides);
+        removeActiveClass(numActiveSlides);
         currentSlideIndex = slideIndex;
-        addActiveClass();
+        addActiveClass(numActiveSlides);
         showSlide();
         indicateCurrentSlide();
     }
