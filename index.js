@@ -87,136 +87,141 @@ const createPersonCard = (i) => {
 
     return divPerson;
 }
+let numShowedSlides = 1;
 
 const insertPersonCards = (num) => {
+    let numShowedSlides = determineMediaScreen();
+    
+
+    function determineMediaScreen() {
+        let numActiveSlides = 1;
+        let windowInnerWidth = document.documentElement.clientWidth;
+     
+        console.log('windowInnerWidth', windowInnerWidth);
+        if (windowInnerWidth < 701) {
+            numActiveSlides = 1;
+        }
+        if (windowInnerWidth > 700) {
+            numActiveSlides = 2;
+        }
+        if (windowInnerWidth > 1200) {
+            numActiveSlides = 3;
+        }
+        return numActiveSlides;
+    }
     const targetWrapper = document.querySelector('.participants__content');
     let i = 0;
     let cards = [];
     while (i < num) {
         cards[i] = createPersonCard(i);
         cards.push(cards[i]);
-        targetWrapper.appendChild(cards[i]);
         i++;
     }
+    let attempt = num / numShowedSlides;
+    let k = 0;
+    let arrShowedSlides = [];
+
+    while (k < attempt) {
+        const divInner = createDOMElem('div', 'showed-person-wrapper');
+        let j = 0;
+        while (j < numShowedSlides) {
+            divInner.appendChild(cards[j]);
+            j++;
+        }
+        arrShowedSlides.push(divInner);
+        targetWrapper.appendChild(arrShowedSlides[k]);
+        cards.splice(0, numShowedSlides);
+        k++;
+    }
 }
+    // CREATE SLIDER PARTICIPANTS
+    const createSlider = () => {
 
-// CREATE SLIDER PARTICIPANTS
-const createSlider = () => {
-    
 
-    const slider = document.getElementById("slider");
-    const arrowLeft = document.querySelector(".arrow-left");
-    const arrowRight = document.querySelector(".arrow-right");
-    const slides = document.querySelectorAll(".person");
-    const pagination = document.getElementById("pagination");
-    const counter = document.querySelector("#counter");
-    const counterIndex = createDOMElem('div', 'counter__index');
-    const counterLength = createDOMElem('div', 'counter__length');
-    createCounter();
-
-    let currentSlideIndex = 0;
-    const paginationCircles = [];
-    const sliderWidth = slider.clientWidth;
-    slides[currentSlideIndex].classList.add("person--active");
-    indicateCurrentSlide();
-
-    function createCounter() {
-        counter.appendChild(counterIndex);
-        counter.appendChild(counterLength);
-    }
-
-    function indicateCurrentSlide() {
-        counterIndex.textContent = currentSlideIndex + 1;
-        counterLength.textContent = '/' + slides.length;
-    }
-
-    function createPaginationCircle() {
-        const div = createDOMElem('div', 'pagination__circle');
-        pagination.appendChild(div);
-        paginationCircles.push(div);
-    }
-
-    function addPagination() {
-        slides.forEach(createPaginationCircle);
-        paginationCircles[0].classList.add("pagination--active");
-        paginationCircles.forEach((circle, index) => {
-            circle.addEventListener("click", () => changeSlide(index));
-        });
-    }
-
-    function addActiveClass(numActive) {
-        paginationCircles[currentSlideIndex].classList.add("pagination--active");
-        // for (let i = currentSlideIndex; i < numActive; i++) {
-        //     slides[i].classList.add("person--active");
-        //     console.log('add:', i);
-        //   }
-        slides[currentSlideIndex].classList.add("person--active");
-        // slides[currentSlideIndex+numActive-1].classList.add("person--active");
-    }
-
-    function removeActiveClass(numActive) {
-        paginationCircles[currentSlideIndex].classList.remove("pagination--active");
-        // for (let i = currentSlideIndex; i < numActive; i++) {
-        //     slides[i].classList.remove("person--active");
-        //     console.log('remove:', i);
-        //   }
-        slides[currentSlideIndex].classList.remove("person--active");
-     
-    }
-
-    function showSlide() {
-
-        let windowInnerWidth = document.documentElement.clientWidth;
-        //slider.style.transform = `translateX(-${currentSlideIndex * sliderWidth}px)`;
-        //console.log('windowInnerWidth:', windowInnerWidth);
-
+        const slider = document.getElementById("slider");
+        const arrowLeft = document.querySelector(".arrow-left");
+        const arrowRight = document.querySelector(".arrow-right");
+        const slides = document.querySelectorAll(".showed-person-wrapper");
+        const pagination = document.getElementById("pagination");
+        const counter = document.querySelector("#counter");
+        const counterIndex = createDOMElem('div', 'counter__index');
+        const counterLength = createDOMElem('div', 'counter__length');
+        createCounter();
+        console.log('slides', slides);
+        let currentSlideIndex = 0;
        
-
-
-    }
-
-    function changeSlide(slideIndex) {
-        let windowInnerWidth = document.documentElement.clientWidth;
-        let numActiveSlides = 1;
-    
-        // if (windowInnerWidth > 700) { 
-        //      numActiveSlides = 2;
-        // }
-        // if (windowInnerWidth > 1200) { 
-        //      numActiveSlides = 3;
-        // }
-        //console.log('numActiveSlides:', numActiveSlides);
-        removeActiveClass(numActiveSlides);
-        currentSlideIndex = slideIndex;
-        addActiveClass(numActiveSlides);
-        showSlide();
+        const paginationCircles = [];
+        slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
         indicateCurrentSlide();
-    }
 
-    function nextSlide() {
-        let newSlideIndex = currentSlideIndex + 1;
-        if (newSlideIndex > slides.length - 1) {
-            newSlideIndex = 0;
+        function createCounter() {
+            counter.appendChild(counterIndex);
+            counter.appendChild(counterLength);
         }
-        changeSlide(newSlideIndex);
-    }
 
-    function previousSlide() {
-        let newSlideIndex = currentSlideIndex - 1;
-        if (newSlideIndex < 0) {
-            newSlideIndex = slides.length - 1;
+        function indicateCurrentSlide() {
+            counterIndex.textContent = currentSlideIndex + 1;
+            counterLength.textContent = '/' + slides.length;
         }
-        changeSlide(newSlideIndex);
-    }
 
-    addPagination();
-    arrowLeft.addEventListener("click", previousSlide);
-    arrowRight.addEventListener("click", nextSlide);
-}
-// ------ START INITIALIZING ------
-activateRunningBlock();
-createCarouselButtons();
-insertPersonCards(dataPersons.length);
-createSlider();
+        function createPaginationCircle() {
+            const div = createDOMElem('div', 'pagination__circle');
+            pagination.appendChild(div);
+            paginationCircles.push(div);
+        }
+
+        function addPagination() {
+            slides.forEach(createPaginationCircle);
+            paginationCircles[0].classList.add("pagination--active");
+            paginationCircles.forEach((circle, index) => {
+                circle.addEventListener("click", () => changeSlide(index));
+            });
+        }
+
+        function addActiveClass() {
+            paginationCircles[currentSlideIndex].classList.add("pagination--active");
+            slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
+        }
+
+        function removeActiveClass() {
+            paginationCircles[currentSlideIndex].classList.remove("pagination--active");
+            slides[currentSlideIndex].classList.remove("showed-person-wrapper--active");
+        }
+
+        function changeSlide(slideIndex) {
+          
+            console.log('currentSlideIndex:', currentSlideIndex);
+            removeActiveClass();
+            currentSlideIndex = slideIndex;
+            console.log('currentSlideIndex:', currentSlideIndex);
+            addActiveClass();
+            indicateCurrentSlide();
+        }
+
+        function nextSlide() {
+            let newSlideIndex = currentSlideIndex + 1;
+            if (newSlideIndex > slides.length - 1) {
+                newSlideIndex = 0;
+            }
+            changeSlide(newSlideIndex);
+        }
+
+        function previousSlide() {
+            let newSlideIndex = currentSlideIndex - 1;
+            if (newSlideIndex < 0) {
+                newSlideIndex = slides.length - 1;
+            }
+            changeSlide(newSlideIndex);
+        }
+
+        addPagination();
+        arrowLeft.addEventListener("click", previousSlide);
+        arrowRight.addEventListener("click", nextSlide);
+    }
+    // ------ START INITIALIZING ------
+    activateRunningBlock();
+    createCarouselButtons();
+    insertPersonCards(dataPersons.length);
+    createSlider();
 
 

@@ -871,14 +871,22 @@ table td {
     margin-top: 0;
   }
 }
+.participants .showed-person-wrapper {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.participants .showed-person-wrapper--active {
+  display: flex;
+}
 .participants .person {
   width: 100%;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-inline: auto;
   transition: 1s ease-in-out;
 }
 @media (min-width: 1262px) {
@@ -890,9 +898,6 @@ table td {
   .participants .person {
     width: 335px;
   }
-}
-.participants .person--active {
-  display: flex;
 }
 .participants .person__img {
   width: 244px;

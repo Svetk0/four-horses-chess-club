@@ -26,15 +26,25 @@
             margin-top: 0;
         }
     }
-
+.showed-person-wrapper {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    
+    &--active {
+        display: flex;
+       
+    }
+}
     .person {
         width: 100%;
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        margin-inline: auto;
+        //margin-inline: auto;
         transition: 1s ease-in-out;
 
         @include desktop {
@@ -44,9 +54,7 @@
             width: 335px;
         }
 
-        &--active {
-            display: flex;
-        }
+     
 
         &__img {
             width: 244px;
@@ -62,6 +70,7 @@
             font-weight: 600;
             font-size: 24px;
             margin: 28px 0 6px 0;
+     
         }
 
         &__rating {
@@ -69,6 +78,7 @@
             font-size: 20px;
             margin-bottom: 20px;
             opacity: 60%;
+    
         }
     }
 
