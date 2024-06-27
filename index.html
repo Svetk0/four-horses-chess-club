@@ -37,12 +37,18 @@
             </p>
           </div>
           <div class="hero__buttons-wrapper">
-            <button type="button" class="button" type="button">
-              Поддержать шахматную мысль
+            <button 
+            class="button" 
+            type="button">
+            <a href="#block-info">
+              Поддержать шахматную мысль</a>
             </button>
-            <button type="button" class="button button-alt" type="button">
-              Подробнее о турнире
+            <button 
+            class="button button-alt" 
+            type="button">
+            <a  href="#block-table"> Подробнее о турнире  </a>
             </button>
+        
           </div>
         </div>
       </section>
@@ -54,7 +60,7 @@
       <section>
         <div class="overall-info">
           <div class="overall-info__topic">
-            <h3 class="overall-info__h3">
+            <h3 id="block-info" class="overall-info__h3">
               Чтобы поддержать Международный васюкинский турнир
             </h3>
             <img
@@ -76,7 +82,7 @@
                 гроссмейстера О. Бендера
               </h3>
 
-              <table class="border-none">
+              <table id="block-table" class="border-none">
                 <tbody>
                   <tr>
                     <th scope="row">Место проведения:</th>
@@ -113,24 +119,24 @@
             <h2>Участники турнира</h2>
           </div>
           <div class="participants__buttons-wrapper">
-            <button type="button" class="button-carousel svg arrow-left"></button>
+            <button
+              type="button"
+              class="button-carousel svg arrow-left"
+            ></button>
             <div class="participants__counter">
-              <div id="counter-index">2</div> <div id="counter-length">/6</div></div>
-            <button 
-            type="button" 
-            class="button-carousel svg arrow-right"
-           ></button>
+              <div id="counter-index"></div>
+              <div id="counter-length"></div>
+            </div>
+            <button
+              type="button"
+              class="button-carousel svg arrow-right"
+            ></button>
           </div>
 
           <div id="slider" class="participants__content">
-            <!-- <div class="participants__card person">
-              <img class="person__img" src="./images/participants/person-bg.png" alt="" />
-              <div class="person__name">Хозе-Рауль Капабланка</div>
-              <div class="person__rating">Чемпион мира по шахматам</div>
-              <button type="button"  class="button-info">Подробнее</button>
-            </div> -->
+      
           </div>
-          <div id="bottom"></div>
+          <div id="pagination"></div>
         </div>
       </section>
     </main>

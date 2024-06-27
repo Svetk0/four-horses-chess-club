@@ -213,6 +213,7 @@ svg * {
   --button-main-height: 72px;
   --button-main-mobile-height: 47px;
   --button-alt-height: 35px;
+  --pagination-bg-default:#D9D9D9;
   --container-width: 1222px;
   --container-padding-x: 20px;
   --desktop-section-padding-y: 100px;
@@ -817,7 +818,7 @@ table td {
     gap: 20px;
   }
 }
-.participants__counter span {
+.participants__counter #counter-length {
   opacity: 60%;
 }
 .participants .person {
@@ -860,16 +861,20 @@ table td {
   opacity: 60%;
 }
 .participants .pagination-circle {
-  width: 25px;
-  height: 25px;
-  border: 2px solid deepskyblue;
+  width: 10px;
+  height: 10px;
+  border: none;
+  background-color: var(--pagination-bg-default);
   border-radius: 50%;
+  flex-shrink: 0;
 }
 .participants .active-pagination {
-  background-color: purple;
+  background-color: var(--color-main);
 }
-.participants #bottom {
+.participants #pagination {
+  width: -moz-fit-content;
+  width: fit-content;
   display: flex;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
 }/*# sourceMappingURL=styles.css.map */

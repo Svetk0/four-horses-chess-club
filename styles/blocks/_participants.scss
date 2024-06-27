@@ -14,7 +14,7 @@
 
     &__counter {
 
-        & span {
+        #counter-length {
             opacity: 60%;
         }
     }
@@ -62,19 +62,22 @@
     }
 
     .pagination-circle {
-        width: 25px;
-        height: 25px;
-        border: 2px solid deepskyblue;
+        width: 10px;
+        height: 10px;
+        border: none;
+        background-color: var(--pagination-bg-default);
         border-radius: 50%;
+        flex-shrink: 0;
     }
 
     .active-pagination {
-        background-color: purple;
+        background-color: var(--color-main);
     }
 
-    #bottom {
+    #pagination {
+        width: fit-content;
         display: flex;
-        column-gap: 25px;
+        column-gap: 8px;
     }
 
 }
