@@ -890,6 +890,9 @@ table td {
     justify-self: end;
   }
 }
+.participants--pagination {
+  display: none;
+}
 .participants .showed-person-wrapper {
   display: none;
   align-items: center;

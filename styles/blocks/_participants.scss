@@ -6,7 +6,6 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         align-self: center;
-        //grid-template-rows: 1fr 1fr;
         margin-bottom: 60px;
     }
 
@@ -14,7 +13,6 @@
         margin-bottom: 40px;
 
         @include desktop {
-           
             white-space: nowrap;
             align-self: flex-start;
             justify-self: start;
@@ -41,20 +39,20 @@
             margin-top: 0;
             grid-row:1/2;
             grid-column: 2/3;
-           
             justify-self: end;
-            
         }
+    }
+    &--pagination {
+        display: none;
     }
 .showed-person-wrapper {
     display: none;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    
+
     &--active {
         display: flex;
-       
     }
 }
     .person {
@@ -64,7 +62,6 @@
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        //margin-inline: auto;
         transition: 1s ease-in-out;
 
         @include desktop {
@@ -88,7 +85,6 @@
             font-weight: 600;
             font-size: 24px;
             margin: 28px 0 6px 0;
-     
         }
 
         &__rating {
@@ -96,10 +92,6 @@
             font-size: 20px;
             margin-bottom: 20px;
             opacity: 60%;
-    
         }
     }
-
-
-
 }

@@ -213,6 +213,7 @@ const insertPersonCards = (num) => {
         addPagination();
         arrowLeft.addEventListener("click", previousSlide);
         arrowRight.addEventListener("click", nextSlide);
+        setInterval(nextSlide, 4000);
     }
     // ------ START INITIALIZING ------
     activateRunningBlock();

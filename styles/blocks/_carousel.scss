@@ -5,19 +5,6 @@
     justify-content: center;
 }
 
-// .pagination-circle {
-//     width: 10px;
-//     height: 10px;
-//     border: none;
-//     background-color: var(--pagination-bg-default);
-//     border-radius: 50%;
-//     flex-shrink: 0;
-// }
-
-// .active-pagination {
-//     background-color: var(--color-main);
-// }
-
 .pagination {
     width: fit-content;
     display: flex;
@@ -37,7 +24,6 @@
         background-color: var(--color-main);
     }
 }
-
 
 .counter {
     display: flex;
