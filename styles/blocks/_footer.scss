@@ -1,0 +1,22 @@
+.footer {
+    position: relative;
+    background-color: var( --background-color-alt);
+
+    &__running-line {
+        position: absolute;
+        bottom:-10px;
+        z-index: 9999;
+    }
+
+    &__text {
+        width: 335px;
+        opacity: 60%;
+        padding-block: 78px 60px;
+        margin-inline: auto;
+
+        @include desktop {
+            width: 1222px;
+        }
+
+    }
+}

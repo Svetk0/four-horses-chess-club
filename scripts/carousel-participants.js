@@ -36,7 +36,7 @@ const dataPersons = [
 ];
 
 
-
+//Создаем карточку участника
 const createPersonCard = (i) => {
     const divPerson = createDOMElem('div', 'person');
     const imgPerson = createDOMElem('img', 'person__img');
@@ -59,11 +59,9 @@ const createPersonCard = (i) => {
     return divPerson;
 }
 
-
+//Вставляем созданные карточки в DOM
 const insertPersonCards = (num) => {
     let numShowedSlides = determineMediaScreen();
-
-
     const targetWrapper = document.querySelector('.participants__content');
     let i = 0;
     let cards = [];
@@ -90,7 +88,7 @@ const insertPersonCards = (num) => {
     }
 }
     // CREATE SLIDER PARTICIPANTS
-export const createSlider = () => {
+export const createSliderParticipants = () => {
     insertPersonCards(dataPersons.length);
         const slider = document.getElementById("slider");
         const arrowLeft = document.querySelector(".arrow-left");

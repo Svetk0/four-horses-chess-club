@@ -14,4 +14,10 @@
      @include desktop-above {
       background-image: url('../images/bg-title.png');
      }
+
+     &__running-line {
+        position: absolute;
+        bottom:-10px;
+        z-index: 9999;
+    }
   }
