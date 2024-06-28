@@ -99,7 +99,6 @@ export const createSliderParticipants = () => {
         const counterIndex = createDOMElem('div', 'counter__index');
         const counterLength = createDOMElem('div', 'counter__length');
         createCounter();
-        console.log('slides', slides);
         let currentSlideIndex = 0;
        
         const paginationCircles = [];
@@ -141,10 +140,8 @@ export const createSliderParticipants = () => {
         }
 
         function changeSlide(slideIndex) {
-            console.log('currentSlideIndex:', currentSlideIndex);
             removeActiveClass();
             currentSlideIndex = slideIndex;
-            console.log('currentSlideIndex:', currentSlideIndex);
             addActiveClass();
             indicateCurrentSlide();
         }
