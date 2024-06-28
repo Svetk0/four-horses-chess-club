@@ -16,6 +16,11 @@
 
         @include desktop {
             width: 1222px;
+            padding-block: 40px 72px;
+        }
+        @include tablet {
+            width: 100%;
+           padding-inline: 72px;
         }
 
     }

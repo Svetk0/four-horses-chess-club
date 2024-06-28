@@ -558,6 +558,13 @@ h4, .h4 {
 @media (min-width: 1262px) {
   .footer__text {
     width: 1222px;
+    padding-block: 40px 72px;
+  }
+}
+@media ((min-width: 376px) and (max-width: 1261px)) {
+  .footer__text {
+    width: 100%;
+    padding-inline: 72px;
   }
 }
 
