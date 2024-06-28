@@ -91,7 +91,6 @@ const createPersonCard = (i) => {
 
 const insertPersonCards = (num) => {
     let numShowedSlides = determineMediaScreen();
-    
 
     function determineMediaScreen() {
         let numActiveSlides = 1;
@@ -136,8 +135,6 @@ const insertPersonCards = (num) => {
 }
     // CREATE SLIDER PARTICIPANTS
     const createSlider = () => {
-
-
         const slider = document.getElementById("slider");
         const arrowLeft = document.querySelector(".arrow-left");
         const arrowRight = document.querySelector(".arrow-right");
@@ -160,7 +157,7 @@ const insertPersonCards = (num) => {
         }
 
         function indicateCurrentSlide() {
-            counterIndex.textContent = currentSlideIndex + 1;
+            counterIndex.textContent = (currentSlideIndex + 1);
             counterLength.textContent = '/' + slides.length;
         }
 

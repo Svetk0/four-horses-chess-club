@@ -844,12 +844,26 @@ table td {
   }
 }
 
+.participants {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1262px) {
+  .participants {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-self: center;
+    margin-bottom: 60px;
+  }
+}
 .participants__title {
   margin-bottom: 40px;
 }
 @media (min-width: 1262px) {
   .participants__title {
-    margin-bottom: 60px;
+    white-space: nowrap;
+    align-self: flex-start;
+    justify-self: start;
   }
 }
 .participants__content {
@@ -860,7 +874,9 @@ table td {
 }
 @media (min-width: 1262px) {
   .participants__content {
+    margin-top: 60px;
     gap: 20px;
+    grid-column: span 2;
   }
 }
 .participants__buttons-wrapper {
@@ -869,6 +885,9 @@ table td {
 @media (min-width: 1262px) {
   .participants__buttons-wrapper {
     margin-top: 0;
+    grid-row: 1/2;
+    grid-column: 2/3;
+    justify-self: end;
   }
 }
 .participants .showed-person-wrapper {
