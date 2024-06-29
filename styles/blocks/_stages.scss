@@ -1,21 +1,21 @@
 .showed-stages-wrapper {
     display: none;
+    flex-direction: column;
+    gap: 28px;
 
     &--active {
-        display: block;
+        display: flex;
     }
 }
 
 .stages {
     display: flex;
     flex-direction: column;
-    //margin-bottom: 120px;
 
     @include desktop {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         align-self: center;
-        //margin-bottom: 60px;
     }
 
     &__title {
@@ -53,8 +53,12 @@
         }
     }
 
-    &__pagination {
+    &__counter {
         display: none;
+    }
+
+    &__pagination--active {
+        background-color: var(--color-main);
     }
 
     .stage {

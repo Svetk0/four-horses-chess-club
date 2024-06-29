@@ -85,7 +85,7 @@ const insertStageCards = (num) => {
   // CREATE SLIDER STAGES
 export const createSliderStages = () => {
     insertStageCards(dataStages.length);
-        const slider = document.getElementById("slider-stages");
+        //const slider = document.getElementById("slider-stages");
         const arrowLeft = document.querySelector("#stages-btn-left");
         const arrowRight = document.querySelector("#stages-btn-right");
         const slides = document.querySelectorAll(".showed-stages-wrapper");
@@ -97,7 +97,8 @@ export const createSliderStages = () => {
         let currentSlideIndex = 0;
        
         const paginationCircles = [];
-        slides[currentSlideIndex].classList.add("showed-stages-wrapper--active");
+    slides[currentSlideIndex].classList.add("showed-stages-wrapper--active");
+    arrowLeft.setAttribute('disabled', '');
         indicateCurrentSlide();
 
         function createCounter() {
@@ -130,35 +131,45 @@ export const createSliderStages = () => {
         }
 
         function removeActiveClass() {
-            paginationCircles[currentSlideIndex].classList.remove("stages--pagination--active");
+            paginationCircles[currentSlideIndex].classList.remove("stages__pagination--active");
             slides[currentSlideIndex].classList.remove("showed-stages-wrapper--active");
         }
 
         function changeSlide(slideIndex) {
             removeActiveClass();
+           
             currentSlideIndex = slideIndex;
             addActiveClass();
             indicateCurrentSlide();
+
         }
 
-        function nextSlide() {
+    function nextSlide() {
+        arrowLeft.removeAttribute('disabled');
             let newSlideIndex = currentSlideIndex + 1;
+            if (newSlideIndex > slides.length - 2) {
+                arrowRight.setAttribute('disabled', '');
+            }
             if (newSlideIndex > slides.length - 1) {
                 newSlideIndex = 0;
             }
             changeSlide(newSlideIndex);
         }
 
-        function previousSlide() {
+    function previousSlide() {
+        arrowRight.removeAttribute('disabled');
             let newSlideIndex = currentSlideIndex - 1;
+            if (newSlideIndex < 1) { 
+                arrowLeft.setAttribute('disabled', '');
+            }
             if (newSlideIndex < 0) {
                 newSlideIndex = slides.length - 1;
             }
             changeSlide(newSlideIndex);
+       
         }
 
         addPagination();
         arrowLeft.addEventListener("click", previousSlide);
         arrowRight.addEventListener("click", nextSlide);
-        //setInterval(nextSlide, 4000);
     }

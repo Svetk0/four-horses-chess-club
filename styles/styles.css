@@ -884,9 +884,11 @@ table td {
 
 .showed-stages-wrapper {
   display: none;
+  flex-direction: column;
+  gap: 28px;
 }
 .showed-stages-wrapper--active {
-  display: block;
+  display: flex;
 }
 
 .stages {
@@ -934,8 +936,11 @@ table td {
     justify-self: end;
   }
 }
-.stages__pagination {
+.stages__counter {
   display: none;
+}
+.stages__pagination--active {
+  background-color: var(--color-main);
 }
 .stages .stage {
   width: 100%;
