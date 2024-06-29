@@ -1,5 +1,5 @@
 import { createDOMElem, determineMediaScreen} from "./utils.js";
-// ---- CAROUSEL PARTICIPANTS ----
+// ---- CAROUSEL STAGES ----
 
 const pathImg = './images/participants/';
 const dataStages= [
@@ -79,29 +79,25 @@ const insertStageCards = (num) => {
         k++;
     }
 }
-insertStageCards(dataStages.length);
 
-    // CREATE SLIDER STAGES
+
+
+  // CREATE SLIDER STAGES
 export const createSliderStages = () => {
     insertStageCards(dataStages.length);
- }
-
-    // CREATE SLIDER PARTICIPANTS
-export const createSliderParticipants = () => {
-    insertPersonCards(dataPersons.length);
-        const slider = document.getElementById("slider");
-        const arrowLeft = document.querySelector(".arrow-left");
-        const arrowRight = document.querySelector(".arrow-right");
-        const slides = document.querySelectorAll(".showed-person-wrapper");
-        const pagination = document.getElementById("pagination");
-        const counter = document.querySelector("#counter");
+        const slider = document.getElementById("slider-stages");
+        const arrowLeft = document.querySelector("#stages-btn-left");
+        const arrowRight = document.querySelector("#stages-btn-right");
+        const slides = document.querySelectorAll(".showed-stages-wrapper");
+        const pagination = document.getElementById("pagination-stages");
+        const counter = document.querySelector("#counter-stages");
         const counterIndex = createDOMElem('div', 'counter__index');
         const counterLength = createDOMElem('div', 'counter__length');
         createCounter();
         let currentSlideIndex = 0;
        
         const paginationCircles = [];
-        slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
+        slides[currentSlideIndex].classList.add("showed-stages-wrapper--active");
         indicateCurrentSlide();
 
         function createCounter() {
@@ -122,20 +118,20 @@ export const createSliderParticipants = () => {
 
         function addPagination() {
             slides.forEach(createPaginationCircle);
-            paginationCircles[0].classList.add("pagination--active");
+            paginationCircles[0].classList.add("stages__pagination--active");
             paginationCircles.forEach((circle, index) => {
                 circle.addEventListener("click", () => changeSlide(index));
             });
         }
 
         function addActiveClass() {
-            paginationCircles[currentSlideIndex].classList.add("pagination--active");
-            slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
+            paginationCircles[currentSlideIndex].classList.add("stages__pagination--active");
+            slides[currentSlideIndex].classList.add("showed-stages-wrapper--active");
         }
 
         function removeActiveClass() {
-            paginationCircles[currentSlideIndex].classList.remove("pagination--active");
-            slides[currentSlideIndex].classList.remove("showed-person-wrapper--active");
+            paginationCircles[currentSlideIndex].classList.remove("stages--pagination--active");
+            slides[currentSlideIndex].classList.remove("showed-stages-wrapper--active");
         }
 
         function changeSlide(slideIndex) {
@@ -164,5 +160,5 @@ export const createSliderParticipants = () => {
         addPagination();
         arrowLeft.addEventListener("click", previousSlide);
         arrowRight.addEventListener("click", nextSlide);
-        setInterval(nextSlide, 4000);
+        //setInterval(nextSlide, 4000);
     }

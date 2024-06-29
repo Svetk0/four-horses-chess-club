@@ -882,6 +882,13 @@ table td {
   }
 }
 
+.showed-stages-wrapper {
+  display: none;
+}
+.showed-stages-wrapper--active {
+  display: block;
+}
+
 .stages {
   display: flex;
   flex-direction: column;
@@ -927,7 +934,7 @@ table td {
     justify-self: end;
   }
 }
-.stages--counter {
+.stages__pagination {
   display: none;
 }
 .stages .stage {
