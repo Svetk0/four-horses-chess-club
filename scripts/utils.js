@@ -20,3 +20,8 @@ export const determineMediaScreen = () => {
     }
     return numActiveSlides;
 }
+
+export const updateScreenWidth = () => { 
+    console.log('currentWidth', document.documentElement.clientWidth);
+    return document.documentElement.clientWidth;
+}
