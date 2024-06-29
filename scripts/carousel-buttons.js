@@ -7,13 +7,14 @@ const createCarouselButtons = () => {
     const arrowRight = 'M1.92336 2.0769L8.84644 8.99998L1.92336 15.9231';
 
     const createArrow = (arrowType, divClass) => {
-        console.log('create svg ' + divClass);
-        const divBtn = document.querySelector(divClass);
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        const path = document.createElementNS(svg.namespaceURI, "path");
-        path.setAttribute("d", arrowType);
-        svg.appendChild(path);
-        divBtn.appendChild(svg);
+        const divBtn = document.querySelectorAll(divClass);
+        divBtn.forEach((btn) => {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            const path = document.createElementNS(svg.namespaceURI, "path");
+            path.setAttribute("d", arrowType);
+            svg.appendChild(path);
+            btn.appendChild(svg);
+        })
     }
     createArrow(arrowRight, '.arrow-right');
     createArrow(arrowLeft, '.arrow-left');
