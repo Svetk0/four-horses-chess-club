@@ -90,12 +90,12 @@ const insertPersonCards = (num) => {
     // CREATE SLIDER PARTICIPANTS
 export const createSliderParticipants = () => {
     insertPersonCards(dataPersons.length);
-        const slider = document.getElementById("slider");
-        const arrowLeft = document.querySelector(".arrow-left");
-        const arrowRight = document.querySelector(".arrow-right");
+        const slider = document.getElementById("slider-participants");
+        const arrowLeft = document.querySelector("#participants-btn-left");
+        const arrowRight = document.querySelector("#participants-btn-right");
         const slides = document.querySelectorAll(".showed-person-wrapper");
-        const pagination = document.getElementById("pagination");
-        const counter = document.querySelector("#counter");
+        const pagination = document.querySelector("#pagination-participants");
+        const counter = document.querySelector("#counter-participants");
         const counterIndex = createDOMElem('div', 'counter__index');
         const counterLength = createDOMElem('div', 'counter__length');
         createCounter();
