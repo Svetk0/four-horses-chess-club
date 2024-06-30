@@ -12,6 +12,7 @@
   --background-color: #FFFFFF;
   --background-color-alt: #E9DED4;
 
+// table  
   --border-table-inner: 2px solid #D0D0D0;
   --color-table: #6F6F6F;
 
@@ -34,7 +35,6 @@
 
   --pagination-bg-default:#D9D9D9;
 
-
 // sizes and paddings
   --container-width: 1222px;
   --container-padding-x: 20px;
@@ -43,4 +43,9 @@
   --mobile-section-padding-y: 60px;
 
   --transition-duration: 0.2s;
+
+  // images
+  --border-image-outside:drop-shadow(4px 4px 0 var(--background-color)) 
+drop-shadow(-4px -4px 0 var(--background-color));
+
 }

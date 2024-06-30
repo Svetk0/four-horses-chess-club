@@ -219,6 +219,8 @@ svg * {
   --desktop-section-padding-y: 100px;
   --mobile-section-padding-y: 60px;
   --transition-duration: 0.2s;
+  --border-image-outside:drop-shadow(4px 4px 0 var(--background-color))
+  drop-shadow(-4px -4px 0 var(--background-color));
 }
 
 .visually-hidden {
@@ -918,7 +920,13 @@ table td {
   height: 182px;
   top: -128px;
   right: 0px;
-  filter: drop-shadow(0 0 1px rgb(20, 220, 87));
+  filter: var(--border-image-outside);
+}
+@media (min-width: 1262px) {
+  .stages__img {
+    width: 394px;
+    height: 244px;
+  }
 }
 .stages__content {
   position: relative;

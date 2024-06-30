@@ -25,7 +25,6 @@
             white-space: nowrap;
             align-self: flex-start;
             justify-self: start;
-
         }
     }
 
@@ -35,10 +34,14 @@
         height: 182px;
         top: -128px;
         right: 0px;
-        //filter: drop-shadow(5px 5px 5px #222);
-        filter: drop-shadow(0 0 1px rgb(20, 220, 87));
-        //box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
+        -webkit-filter: var(--border-image-outside);
+        filter: var(--border-image-outside);
+
+        @include desktop {
+            width: 394px;
+            height: 244px;
+        }
     }
 
     &__content {
@@ -85,8 +88,8 @@
         gap: 16px;
 
         @include desktop {
-           height: auto;
-           padding: 20px;
+            height: auto;
+            padding: 20px;
         }
 
         &__order {
@@ -99,8 +102,8 @@
             font-size: 20px;
             font-weight: 600;
             border-radius: 50%;
-            background-color: var( --background-color);
-            
+            background-color: var(--background-color);
+
         }
 
         &__content {
