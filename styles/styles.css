@@ -912,7 +912,16 @@ table td {
     justify-self: start;
   }
 }
+.stages__img {
+  position: absolute;
+  width: 335px;
+  height: 182px;
+  top: -128px;
+  right: 0px;
+  filter: drop-shadow(0 0 1px rgb(20, 220, 87));
+}
 .stages__content {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;

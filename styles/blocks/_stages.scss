@@ -29,7 +29,20 @@
         }
     }
 
+    &__img {
+        position: absolute;
+        width: 335px;
+        height: 182px;
+        top: -128px;
+        right: 0px;
+        //filter: drop-shadow(5px 5px 5px #222);
+        filter: drop-shadow(0 0 1px rgb(20, 220, 87));
+        //box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    }
+
     &__content {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
