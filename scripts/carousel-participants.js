@@ -1,4 +1,4 @@
-import { createDOMElem, determineMediaScreen} from "./utils.js";
+import { createDOMElem} from "./utils.js";
 // ---- CAROUSEL PARTICIPANTS ----
 
 const pathImg = './images/participants/';
@@ -34,8 +34,22 @@ const dataPersons = [
         img: "person-bg.png",
     },
 ];
+// Определяем сколько карточек показывать в зависимости от ширины экрана
+const determineMediaScreen = () => {
+    let numActiveSlides = 1;
+    let windowInnerWidth = document.documentElement.clientWidth;
 
-
+    if (windowInnerWidth < 701) {
+        numActiveSlides = 1;
+    }
+    if (windowInnerWidth > 700) {
+        numActiveSlides = 2;
+    }
+    if (windowInnerWidth > 1200) {
+        numActiveSlides = 3;
+    }
+    return numActiveSlides;
+}
 //Создаем карточку участника
 const createPersonCard = (i) => {
     const divPerson = createDOMElem('div', 'person');
@@ -62,6 +76,7 @@ const createPersonCard = (i) => {
 //Вставляем созданные карточки в DOM
 const insertPersonCards = (num) => {
     let numShowedSlides = determineMediaScreen();
+    
     const targetWrapper = document.querySelector('.participants__content');
     let i = 0;
     let cards = [];

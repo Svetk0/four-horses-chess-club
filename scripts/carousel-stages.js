@@ -80,12 +80,9 @@ const insertStageCards = (num) => {
     }
 }
 
-
-
   // CREATE SLIDER STAGES
 export const createSliderStages = () => {
     insertStageCards(dataStages.length);
-        //const slider = document.getElementById("slider-stages");
         const arrowLeft = document.querySelector("#stages-btn-left");
         const arrowRight = document.querySelector("#stages-btn-right");
         const slides = document.querySelectorAll(".showed-stages-wrapper");
@@ -137,11 +134,9 @@ export const createSliderStages = () => {
 
         function changeSlide(slideIndex) {
             removeActiveClass();
-           
             currentSlideIndex = slideIndex;
             addActiveClass();
             indicateCurrentSlide();
-
         }
 
     function nextSlide() {
