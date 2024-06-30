@@ -1,7 +1,6 @@
-import { createDOMElem, determineMediaScreen} from "./utils.js";
+import { createDOMElem} from "./utils.js";
 // ---- CAROUSEL STAGES ----
 
-const pathImg = './images/participants/';
 const dataStages= [
     {
         content: "Хозе-Строительство железнодорожной магистрали Москва-Васюки Капабланка",
@@ -33,6 +32,23 @@ const dataStages= [
     },
 ];
 
+const determineStagesNumInBlock = () => {
+    const elem = document.querySelector('.stage');
+    let numActiveSlides = 1;
+    let heightBlock = elem.getAttribute('height');
+
+    console.log('heightBlock', heightBlock);
+    if (heightBlock < 701) {
+        numActiveSlides = 1;
+    }
+    if (heightBlock > 700) {
+        numActiveSlides = 2;
+    }
+    if (heightBlock > 1200) {
+        numActiveSlides = 3;
+    }
+    return numActiveSlides;
+}
 
 //Создаем карточку этапа
 const createStageCard = (i) => {
@@ -53,7 +69,7 @@ const createStageCard = (i) => {
 
 //Вставляем созданные карточки в DOM
 const insertStageCards = (num) => {
-    let numShowedSlides = determineMediaScreen();
+    let numShowedSlides = 2;
     const targetWrapper = document.querySelector('.stages__content');
     let i = 0;
     let cards = [];
