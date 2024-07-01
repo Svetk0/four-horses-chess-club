@@ -95,5 +95,9 @@
             margin-bottom: 20px;
             opacity: 60%;
         }
+
+        &__link {
+            @include reset-link;
+        }
     }
 }

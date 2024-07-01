@@ -1132,4 +1132,11 @@ table td {
   font-size: 20px;
   margin-bottom: 20px;
   opacity: 60%;
+}
+.participants .person__link {
+  color: inherit;
+  cursor: pointer;
+}
+.participants .person__link, .participants .person__link:hover {
+  text-decoration: none;
 }/*# sourceMappingURL=styles.css.map */

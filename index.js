@@ -9,7 +9,6 @@ import { createSliderParticipants } from "./scripts/carousel-participants.js";
 
 
 // ------ START INITIALIZING ------
-
 joinText();
 activateRunningLine();
 createCarouselButtons();

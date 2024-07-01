@@ -7,31 +7,37 @@ const dataPersons = [
         name: "Хозе-Рауль Капабланка",
         rating: "Чемпион мира по шахматам",
         img: "person-bg.png",
+        link:"#slider-participants",
     },
     {
         name: "Эммануил Ласкер",
         rating: "Чемпион мира по шахматам",
         img: "person-bg.png",
+        link:"#slider-participants",
     },
     {
         name: "Александр Алехин",
         rating: "Чемпион мира по шахматам",
         img: "person-bg.png",
+        link:"#slider-participants",
     },
     {
         name: "Арон Нимцович",
         rating: "Чемпион мира по шахматам",
         img: "person-bg.png",
+        link:"#slider-participants",
     },
     {
         name: "Рихард Рети",
         rating: "Чемпион мира по шахматам",
         img: "person-bg.png",
+        link:"#slider-participants",
     },
     {
         name: "Остап Бендер",
         rating: "Гроссмейстер",
         img: "person-bg.png",
+        link:"#slider-participants",
     },
 ];
 // Определяем сколько карточек показывать в зависимости от ширины экрана
@@ -57,17 +63,21 @@ const createPersonCard = (i) => {
     const namePerson = createDOMElem('div', 'person__name');
     const ratingPerson = createDOMElem('div', 'person__rating');
     const button = createDOMElem('button', 'button-info');
+    const link = createDOMElem('a', 'person__link');
 
     //values
     imgPerson.src = pathImg + dataPersons[i].img;
     namePerson.innerHTML = dataPersons[i].name;
     ratingPerson.innerHTML = dataPersons[i].rating;
-    button.innerHTML = 'Подробнее';
+    //link.setAttribute('href', `${ dataPersons[i].link }-${i+1}`);
+    link.setAttribute('href', dataPersons[i].link);
+    link.innerHTML = 'Подробнее';
 
     //order
     divPerson.appendChild(imgPerson);
     divPerson.appendChild(namePerson);
     divPerson.appendChild(ratingPerson);
+    button.appendChild(link);
     divPerson.appendChild(button);
 
     return divPerson;
@@ -75,8 +85,6 @@ const createPersonCard = (i) => {
 
 //Вставляем созданные карточки в DOM
 const insertPersonCards = (num) => {
-    let numShowedSlides = determineMediaScreen();
-
     const targetWrapper = document.querySelector('.participants__content');
     let i = 0;
     let cards = [];
@@ -104,6 +112,7 @@ const insertPersonCards = (num) => {
 }
 
 // CREATE SLIDER PARTICIPANTS
+const numShowedSlides = determineMediaScreen();
 export const createSliderParticipants = () => {
 
     // COUNTER
@@ -113,7 +122,6 @@ export const createSliderParticipants = () => {
     }
 
     function indicateCurrentSlide() {
-        let numShowedSlides = determineMediaScreen();
         counterIndex.textContent = ((currentSlideIndex + 1)*numShowedSlides);
         counterLength.textContent = '/' + (numShowedSlides*slides.length);
     }
@@ -168,6 +176,7 @@ export const createSliderParticipants = () => {
     }
 
     // START PROGRAM
+    //const numShowedSlides = determineMediaScreen();
     insertPersonCards(dataPersons.length);
 
     const arrowLeft = document.querySelector("#participants-btn-left");
