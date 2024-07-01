@@ -17,6 +17,10 @@
         height: 100%;
         padding: 20px;
     }
+    @include tablet {
+        @include fluid-width($max:700,$min:335);
+        padding-inline:clamp(20px,#{calc(100 / 1222*100)}vw,100px);
+    }
 
     &:nth-child(4) {
         @include desktop {
@@ -45,6 +49,37 @@
             justify-self: start;
             margin-bottom: 54px;
         }
+
+        &--row {
+            @include desktop {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 20px;
+                align-items: center;
+            } 
+            @include tablet {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 20px;
+                align-items: center;
+            } 
+        }
+    }
+
+    &__comment {
+        margin-top: 12px;
+
+        @include desktop {
+            margin-top: 0;
+            width: 280px;
+            white-space: normal;
+        } 
+
+        @include tablet {
+            margin-top: 0;
+            width: 280px;
+            white-space: normal;
+        } 
     }
 
     &__img {
@@ -74,9 +109,9 @@
         @include desktop {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            margin-top: 54px;
             gap: 20px;
         }
+      
     }
 
     &__buttons-wrapper {
