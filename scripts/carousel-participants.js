@@ -1,6 +1,6 @@
-import { createDOMElem} from "./utils.js";
-// ---- CAROUSEL PARTICIPANTS ----
+import { createDOMElem } from "./utils.js";
 
+// ---- CAROUSEL PARTICIPANTS ----
 const pathImg = './images/participants/';
 const dataPersons = [
     {
@@ -76,7 +76,7 @@ const createPersonCard = (i) => {
 //Вставляем созданные карточки в DOM
 const insertPersonCards = (num) => {
     let numShowedSlides = determineMediaScreen();
-    
+
     const targetWrapper = document.querySelector('.participants__content');
     let i = 0;
     let cards = [];
@@ -102,83 +102,91 @@ const insertPersonCards = (num) => {
         k++;
     }
 }
-    // CREATE SLIDER PARTICIPANTS
+
+// CREATE SLIDER PARTICIPANTS
 export const createSliderParticipants = () => {
-    insertPersonCards(dataPersons.length);
-        const slider = document.getElementById("slider-participants");
-        const arrowLeft = document.querySelector("#participants-btn-left");
-        const arrowRight = document.querySelector("#participants-btn-right");
-        const slides = document.querySelectorAll(".showed-person-wrapper");
-        const pagination = document.querySelector("#pagination-participants");
-        const counter = document.querySelector("#counter-participants");
-        const counterIndex = createDOMElem('div', 'counter__index');
-        const counterLength = createDOMElem('div', 'counter__length');
-        createCounter();
-        let currentSlideIndex = 0;
-       
-        const paginationCircles = [];
-        slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
-        indicateCurrentSlide();
 
-        function createCounter() {
-            counter.appendChild(counterIndex);
-            counter.appendChild(counterLength);
-        }
-
-        function indicateCurrentSlide() {
-            counterIndex.textContent = (currentSlideIndex + 1);
-            counterLength.textContent = '/' + slides.length;
-        }
-
-        function createPaginationCircle() {
-            const div = createDOMElem('div', 'pagination__circle');
-            pagination.appendChild(div);
-            paginationCircles.push(div);
-        }
-
-        function addPagination() {
-            slides.forEach(createPaginationCircle);
-            paginationCircles[0].classList.add("pagination--active");
-            paginationCircles.forEach((circle, index) => {
-                circle.addEventListener("click", () => changeSlide(index));
-            });
-        }
-
-        function addActiveClass() {
-            paginationCircles[currentSlideIndex].classList.add("pagination--active");
-            slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
-        }
-
-        function removeActiveClass() {
-            paginationCircles[currentSlideIndex].classList.remove("pagination--active");
-            slides[currentSlideIndex].classList.remove("showed-person-wrapper--active");
-        }
-
-        function changeSlide(slideIndex) {
-            removeActiveClass();
-            currentSlideIndex = slideIndex;
-            addActiveClass();
-            indicateCurrentSlide();
-        }
-
-        function nextSlide() {
-            let newSlideIndex = currentSlideIndex + 1;
-            if (newSlideIndex > slides.length - 1) {
-                newSlideIndex = 0;
-            }
-            changeSlide(newSlideIndex);
-        }
-
-        function previousSlide() {
-            let newSlideIndex = currentSlideIndex - 1;
-            if (newSlideIndex < 0) {
-                newSlideIndex = slides.length - 1;
-            }
-            changeSlide(newSlideIndex);
-        }
-
-        addPagination();
-        arrowLeft.addEventListener("click", previousSlide);
-        arrowRight.addEventListener("click", nextSlide);
-        setInterval(nextSlide, 4000);
+    // COUNTER
+    function createCounter() {
+        counter.appendChild(counterIndex);
+        counter.appendChild(counterLength);
     }
+
+    function indicateCurrentSlide() {
+        let numShowedSlides = determineMediaScreen();
+        counterIndex.textContent = ((currentSlideIndex + 1)*numShowedSlides);
+        counterLength.textContent = '/' + (numShowedSlides*slides.length);
+    }
+
+    // PAGINATION
+    function createPaginationCircle() {
+        const div = createDOMElem('div', 'pagination__circle');
+        pagination.appendChild(div);
+        paginationCircles.push(div);
+    }
+
+    function addPagination() {
+        slides.forEach(createPaginationCircle);
+        paginationCircles[0].classList.add("pagination--active");
+        paginationCircles.forEach((circle, index) => {
+            circle.addEventListener("click", () => changeSlide(index));
+        });
+    }
+
+    // CAROUSEL
+    function addActiveClass() {
+        paginationCircles[currentSlideIndex].classList.add("pagination--active");
+        slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
+    }
+
+    function removeActiveClass() {
+        paginationCircles[currentSlideIndex].classList.remove("pagination--active");
+        slides[currentSlideIndex].classList.remove("showed-person-wrapper--active");
+    }
+
+    function changeSlide(slideIndex) {
+        removeActiveClass();
+        currentSlideIndex = slideIndex;
+        addActiveClass();
+        indicateCurrentSlide();
+    }
+
+    function nextSlide() {
+        let newSlideIndex = currentSlideIndex + 1;
+        if (newSlideIndex > slides.length - 1) {
+            newSlideIndex = 0;
+        }
+        changeSlide(newSlideIndex);
+    }
+
+    function previousSlide() {
+        let newSlideIndex = currentSlideIndex - 1;
+        if (newSlideIndex < 0) {
+            newSlideIndex = slides.length - 1;
+        }
+        changeSlide(newSlideIndex);
+    }
+
+    // START PROGRAM
+    insertPersonCards(dataPersons.length);
+
+    const arrowLeft = document.querySelector("#participants-btn-left");
+    const arrowRight = document.querySelector("#participants-btn-right");
+    const slides = document.querySelectorAll(".showed-person-wrapper");
+    const pagination = document.querySelector("#pagination-participants");
+    const counter = document.querySelector("#counter-participants");
+
+    const counterIndex = createDOMElem('div', 'counter__index');
+    const counterLength = createDOMElem('div', 'counter__length');
+
+    let currentSlideIndex = 0;
+    const paginationCircles = [];
+    slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
+
+    createCounter();
+    indicateCurrentSlide();
+    addPagination();
+    arrowLeft.addEventListener("click", previousSlide);
+    arrowRight.addEventListener("click", nextSlide);
+    setInterval(nextSlide, 4000);
+}
