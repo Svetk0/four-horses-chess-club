@@ -15,12 +15,12 @@ const dataStages = [
             combine: true,
         }
     ],
-
-    {
+    [{
         content: "Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет",
         order: "3",
         combine: false,
-    },
+    }],
+
     [
         {
             content: "Строительство дворца для турнира",
@@ -33,16 +33,18 @@ const dataStages = [
             combine: true,
         }
     ],
-    {
+    [{
         content: "Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов",
         order: "6",
         combine: false,
-    },
-    {
+    }],
+    [{
         content: "Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн",
         order: "7",
         combine: false,
-    },
+    }],
+
+
 ];
 
 let dataStagesDesktop = dataStages.reduce((card, current) =>
@@ -70,6 +72,44 @@ const createStageCardDesktop = (i) => {
     return divInner;
 }
 
+const createStageCardMobile = (i) => {
+    const divInner = createDOMElem('div', 'showed-stages-wrapper');
+    //const divStage = createDOMElem('div', 'stage-card');
+    // const contentStage = createDOMElem('div', 'stage-card__content');
+    // const orderStage = createDOMElem('div', 'stage-card__order');
+    let cardsperdiv = [];
+    console.log('dataStages[i]', dataStages[i], dataStages[i][0].content);
+    //values
+    let j = 0;
+    while (j < dataStages[i].length) {
+        const contentStage = createDOMElem('div', 'stage-card__content');
+        const orderStage = createDOMElem('div', 'stage-card__order');
+        const divStage = createDOMElem('div', 'stage-card');
+        contentStage.innerHTML = dataStages[i][j].content;
+        orderStage.innerHTML = dataStages[i][j].order;
+        divStage.appendChild(orderStage);
+        divStage.appendChild(contentStage);
+        cardsperdiv.push(divStage);
+        j++;
+    }
+    console.log('cardsperdiv[i]', cardsperdiv);
+    cardsperdiv.forEach((stage) => divInner.appendChild(stage));
+
+    //     contentStage.innerHTML = item.content;
+    //     orderStage.innerHTML = item.order;
+    //     divStage.appendChild(orderStage);
+    //     divStage.appendChild(contentStage);
+    // })
+    // contentStage.innerHTML = dataStages[i].content;
+    // orderStage.innerHTML = dataStages[i].order;
+
+    //order
+
+    //divInner.appendChild(divStage);
+
+    return divInner;
+}
+
 //Вставляем созданные карточки в DOM
 const insertStageCards = (data, func) => {
     let i = 0;
@@ -80,12 +120,10 @@ const insertStageCards = (data, func) => {
     }
 }
 
-
-
 // CREATE SLIDER STAGES
 export const createSliderStages = () => {
-    insertStageCards(dataStagesDesktop,createStageCardDesktop);
-
+    insertStageCards(dataStages, createStageCardMobile);
+    //insertStageCards(dataStagesDesktop,createStageCardDesktop);
     const slider = document.getElementById("slider-stages");
     const arrowLeft = document.querySelector("#stages-btn-left");
     const arrowRight = document.querySelector("#stages-btn-right");
