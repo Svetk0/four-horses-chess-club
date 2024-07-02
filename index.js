@@ -6,14 +6,12 @@ import createCarouselButtons from "./scripts/buttons-carousel.js";
 import { createSliderStages } from "./scripts/carousel-stages.js";
 import { createSliderParticipants } from "./scripts/carousel-participants.js";
 
-
-
 // ------ START INITIALIZING ------
 joinText();
 activateRunningLine();
 createCarouselButtons();
-createSliderStages();
 createSliderParticipants();
+createSliderStages();
 
 
 

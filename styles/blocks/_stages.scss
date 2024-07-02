@@ -1,5 +1,23 @@
+#frame-stages-slider {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 335px;
+    align-items: flex-start;
+    align-self: center;
+
+    @include desktop {
+        display: block;
+        width: 100%;
+    }
+
+    @include tablet {
+        @include fluid-width($max:650,$min:335);
+    }
+}
 .showed-stages-wrapper {
-    display: none;
+    display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     gap: 28px;
 
@@ -9,20 +27,17 @@
     background-size: cover;
     padding: 62px 20px 20px 20px;
 
-    &--active {
-        display: flex;
-    }
+
     @include desktop {
         display: flex;
         height: 100%;
         padding: 20px;
     }
     @include tablet {
-        @include fluid-width($max:700,$min:335);
-        padding-inline:clamp(20px,#{calc(100 / 1222*100)}vw,100px);
+        padding-inline:clamp(20px,#{calc(80 / 1222*100)}vw,80px);
     }
 
-    &:nth-child(4) {
+    &:nth-child(3) {
         @include desktop {
             grid-row: 1/3;
             grid-column: 3/4;
@@ -39,6 +54,7 @@
 .stages {
     display: flex;
     flex-direction: column;
+   
 
     &__title {
         margin-bottom: 148px;
@@ -57,16 +73,11 @@
                 gap: 20px;
                 align-items: center;
             } 
-            @include tablet {
-                display: flex;
-                flex-wrap: nowrap;
-                gap: 20px;
-                align-items: center;
-            } 
         }
     }
 
     &__comment {
+        width: 100%;
         margin-top: 12px;
 
         @include desktop {
@@ -74,12 +85,9 @@
             width: 280px;
             white-space: normal;
         } 
-
-        @include tablet {
-            margin-top: 0;
-            width: 280px;
-            white-space: normal;
-        } 
+    }
+    &__img-wrapper {
+        position: relative;
     }
 
     &__img {
@@ -88,6 +96,7 @@
         height: 182px;
         top: -128px;
         right: 0px;
+        z-index: 9999;
 
         -webkit-filter: var(--border-image-outside);
         filter: var(--border-image-outside);
@@ -100,10 +109,10 @@
     }
     }
     &__content {
-        position: relative;
+        width: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
         transition: 1s ease-in-out;
 
         @include desktop {
@@ -130,8 +139,7 @@
         background-color: var(--color-main);
     }
 
-    .stage {
-       
+    .stage-card {
         display: flex;
         flex-wrap: nowrap;
         gap: 16px;
