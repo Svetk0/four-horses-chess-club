@@ -133,6 +133,7 @@ const groupStages = () => {
 export const createSliderStages = () => {
     insertStageCards(dataStages.length);
     groupStages();
+    const slider = document.getElementById("slider-stages");
     const arrowLeft = document.querySelector("#stages-btn-left");
     const arrowRight = document.querySelector("#stages-btn-right");
     const slides = document.querySelectorAll(".showed-stages-wrapper");
@@ -144,10 +145,16 @@ export const createSliderStages = () => {
     let currentSlideIndex = 0;
 
     const paginationCircles = [];
+    const sliderWidth = slider.clientWidth;
+
     slides[currentSlideIndex].classList.add("showed-stages-wrapper--active");
     arrowLeft.setAttribute('disabled', '');
     indicateCurrentSlide();
+    addPagination();
+    arrowLeft.addEventListener("click", previousSlide);
+    arrowRight.addEventListener("click", nextSlide);
 
+     //------------------------- COUNTER --------------------
     function createCounter() {
         counter.appendChild(counterIndex);
         counter.appendChild(counterLength);
@@ -158,6 +165,7 @@ export const createSliderStages = () => {
         counterLength.textContent = '/' + slides.length;
     }
 
+    //------------------------- PAGINATION --------------------
     function createPaginationCircle() {
         const div = createDOMElem('div', 'pagination__circle');
         pagination.appendChild(div);
@@ -172,6 +180,7 @@ export const createSliderStages = () => {
         });
     }
 
+ //------------------------- SLIDER --------------------
     function addActiveClass() {
         paginationCircles[currentSlideIndex].classList.add("stages__pagination--active");
         slides[currentSlideIndex].classList.add("showed-stages-wrapper--active");
@@ -182,11 +191,17 @@ export const createSliderStages = () => {
         slides[currentSlideIndex].classList.remove("showed-stages-wrapper--active");
     }
 
+    function showSlide() {
+        console.log('sliderWidth', sliderWidth);
+        slider.style.transform = `translateX(-${currentSlideIndex * sliderWidth}px)`;
+    }
+
     function changeSlide(slideIndex) {
         removeActiveClass();
         currentSlideIndex = slideIndex;
         addActiveClass();
         indicateCurrentSlide();
+        showSlide();
     }
 
     function nextSlide() {
@@ -211,10 +226,5 @@ export const createSliderStages = () => {
             newSlideIndex = slides.length - 1;
         }
         changeSlide(newSlideIndex);
-
     }
-
-    addPagination();
-    arrowLeft.addEventListener("click", previousSlide);
-    arrowRight.addEventListener("click", nextSlide);
 }

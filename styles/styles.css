@@ -874,8 +874,17 @@ table td {
   }
 }
 
+#frame {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  align-items: flex-start;
+}
+
 .showed-stages-wrapper {
-  display: none;
+  display: flex;
+  flex-shrink: 0;
   flex-direction: column;
   gap: 28px;
   width: 100%;
@@ -961,12 +970,16 @@ table td {
     white-space: normal;
   }
 }
+.stages__img-wrapper {
+  position: relative;
+}
 .stages__img {
   position: absolute;
   width: 335px;
   height: 182px;
   top: -128px;
   right: 0px;
+  z-index: 9999;
   filter: var(--border-image-outside);
 }
 @media (min-width: 1262px) {
@@ -978,10 +991,9 @@ table td {
   }
 }
 .stages__content {
-  position: relative;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   transition: 1s ease-in-out;
 }
 @media (min-width: 1262px) {

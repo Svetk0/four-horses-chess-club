@@ -1,5 +1,14 @@
+#frame {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 335px;
+    align-items: flex-start;
+}
 .showed-stages-wrapper {
-    display: none;
+    //display: none;
+    display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     gap: 28px;
 
@@ -39,6 +48,7 @@
 .stages {
     display: flex;
     flex-direction: column;
+   
 
     &__title {
         margin-bottom: 148px;
@@ -81,6 +91,9 @@
             white-space: normal;
         } 
     }
+    &__img-wrapper {
+        position: relative;
+    }
 
     &__img {
         position: absolute;
@@ -88,6 +101,7 @@
         height: 182px;
         top: -128px;
         right: 0px;
+        z-index: 9999;
 
         -webkit-filter: var(--border-image-outside);
         filter: var(--border-image-outside);
@@ -100,10 +114,9 @@
     }
     }
     &__content {
-        position: relative;
+        width: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
         transition: 1s ease-in-out;
 
         @include desktop {

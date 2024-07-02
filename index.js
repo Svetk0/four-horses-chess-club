@@ -16,4 +16,3 @@ createSliderStages();
 createSliderParticipants();
 
 
-
