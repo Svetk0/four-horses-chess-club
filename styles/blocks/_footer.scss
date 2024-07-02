@@ -20,7 +20,8 @@
         }
         @include tablet {
             width: 100%;
-           padding-inline: 72px;
+            padding-block: 40px 72px;
+            padding-inline:clamp(20px,#{calc(80 / 1222*100)}vw,80px);
         }
     }
 }

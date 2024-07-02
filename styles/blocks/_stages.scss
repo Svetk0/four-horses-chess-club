@@ -12,7 +12,7 @@
     }
 
     @include tablet {
-        @include fluid-width($max:700,$min:335);
+        @include fluid-width($max:650,$min:335);
     }
 }
 .showed-stages-wrapper {
@@ -34,7 +34,7 @@
         padding: 20px;
     }
     @include tablet {
-        padding-inline:clamp(20px,#{calc(100 / 1222*100)}vw,100px);
+        padding-inline:clamp(20px,#{calc(80 / 1222*100)}vw,80px);
     }
 
     &:nth-child(3) {
@@ -140,7 +140,6 @@
     }
 
     .stage-card {
-       
         display: flex;
         flex-wrap: nowrap;
         gap: 16px;

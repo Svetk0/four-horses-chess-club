@@ -566,7 +566,8 @@ h4, .h4 {
 @media ((min-width: 376px) and (max-width: 1261px)) {
   .footer__text {
     width: 100%;
-    padding-inline: 72px;
+    padding-block: 40px 72px;
+    padding-inline: clamp(20px, 6.5466448445vw, 80px);
   }
 }
 
@@ -890,7 +891,7 @@ table td {
 }
 @media ((min-width: 376px) and (max-width: 1261px)) {
   #frame-stages-slider {
-    width: clamp(335px, 57.2831423895vw, 700px);
+    width: clamp(335px, 53.1914893617vw, 650px);
   }
 }
 
@@ -914,7 +915,7 @@ table td {
 }
 @media ((min-width: 376px) and (max-width: 1261px)) {
   .showed-stages-wrapper {
-    padding-inline: clamp(20px, 8.1833060556vw, 100px);
+    padding-inline: clamp(20px, 6.5466448445vw, 80px);
   }
 }
 @media (min-width: 1262px) {
