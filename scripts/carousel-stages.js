@@ -46,7 +46,7 @@ export const determineMediaScreen = () => {
     return numActiveSlides;
 }
 const determineStagesNumInBlock = () => {
-    const elem = document.querySelector('.stage');
+    const elem = document.querySelector('.stage-card');
     let numActiveSlides = 1;
     let heightBlock = elem.getAttribute('height');
 
@@ -65,9 +65,9 @@ const determineStagesNumInBlock = () => {
 
 //Создаем карточку этапа
 const createStageCard = (i) => {
-    const divStage = createDOMElem('div', 'stage');
-    const contentStage = createDOMElem('div', 'stage__content');
-    const orderStage = createDOMElem('div', 'stage__order');
+    const divStage = createDOMElem('div', 'stage-card');
+    const contentStage = createDOMElem('div', 'stage-card__content');
+    const orderStage = createDOMElem('div', 'stage-card__order');
 
     //values
     contentStage.innerHTML = dataStages[i].content;
@@ -101,7 +101,7 @@ const insertStageCards = (num) => {
 const groupStages = () => { 
     window.addEventListener("load", () => {
         // Fully loaded!
-        const element = document.querySelector('.stage');
+        const element = document.querySelector('.stage-card');
     console.log('allCards', element.clientHeight);
     //const element = parseFloat( getComputedStyle( element ).height ); 
     const height = parseFloat( getComputedStyle( element ).height ); 

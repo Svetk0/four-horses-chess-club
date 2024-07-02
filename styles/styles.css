@@ -1012,12 +1012,12 @@ table td {
 .stages__pagination--active {
   background-color: var(--color-main);
 }
-.stages .stage {
+.stages .stage-card {
   display: flex;
   flex-wrap: nowrap;
   gap: 16px;
 }
-.stages .stage__order {
+.stages .stage-card__order {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -1029,13 +1029,13 @@ table td {
   border-radius: 50%;
   background-color: var(--background-color);
 }
-.stages .stage__content {
+.stages .stage-card__content {
   font-size: 18px;
   line-height: 21.6px;
   font-weight: 500;
 }
 @media (min-width: 1262px) {
-  .stages .stage__content {
+  .stages .stage-card__content {
     font-size: 20px;
     line-height: 24px;
   }
