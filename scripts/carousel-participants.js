@@ -69,7 +69,6 @@ const createPersonCard = (i) => {
     imgPerson.src = pathImg + dataPersons[i].img;
     namePerson.innerHTML = dataPersons[i].name;
     ratingPerson.innerHTML = dataPersons[i].rating;
-    //link.setAttribute('href', `${ dataPersons[i].link }-${i+1}`);
     link.setAttribute('href', dataPersons[i].link);
     link.innerHTML = 'Подробнее';
 
@@ -114,6 +113,28 @@ const insertPersonCards = (num) => {
 // CREATE SLIDER PARTICIPANTS
 const numShowedSlides = determineMediaScreen();
 export const createSliderParticipants = () => {
+      // START PROGRAM
+      insertPersonCards(dataPersons.length);
+
+      const arrowLeft = document.querySelector("#participants-btn-left");
+      const arrowRight = document.querySelector("#participants-btn-right");
+      const slides = document.querySelectorAll(".showed-person-wrapper");
+      const pagination = document.querySelector("#pagination-participants");
+      const counter = document.querySelector("#counter-participants");
+  
+      const counterIndex = createDOMElem('div', 'counter__index');
+      const counterLength = createDOMElem('div', 'counter__length');
+  
+      let currentSlideIndex = 0;
+      const paginationCircles = [];
+      slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
+  
+      createCounter();
+      indicateCurrentSlide();
+      addPagination();
+      arrowLeft.addEventListener("click", previousSlide);
+      arrowRight.addEventListener("click", nextSlide);
+      setInterval(nextSlide, 4000);
 
     // COUNTER
     function createCounter() {
@@ -174,28 +195,4 @@ export const createSliderParticipants = () => {
         }
         changeSlide(newSlideIndex);
     }
-
-    // START PROGRAM
-    //const numShowedSlides = determineMediaScreen();
-    insertPersonCards(dataPersons.length);
-
-    const arrowLeft = document.querySelector("#participants-btn-left");
-    const arrowRight = document.querySelector("#participants-btn-right");
-    const slides = document.querySelectorAll(".showed-person-wrapper");
-    const pagination = document.querySelector("#pagination-participants");
-    const counter = document.querySelector("#counter-participants");
-
-    const counterIndex = createDOMElem('div', 'counter__index');
-    const counterLength = createDOMElem('div', 'counter__length');
-
-    let currentSlideIndex = 0;
-    const paginationCircles = [];
-    slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
-
-    createCounter();
-    indicateCurrentSlide();
-    addPagination();
-    arrowLeft.addEventListener("click", previousSlide);
-    arrowRight.addEventListener("click", nextSlide);
-    setInterval(nextSlide, 4000);
 }
