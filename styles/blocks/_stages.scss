@@ -1,13 +1,18 @@
-#frame {
+#frame-stages-slider {
     overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 335px;
     align-items: flex-start;
+    align-self: center;
 
     @include desktop {
         display: block;
         width: 100%;
+    }
+
+    @include tablet {
+        @include fluid-width($max:700,$min:335);
     }
 }
 .showed-stages-wrapper {
@@ -29,7 +34,6 @@
         padding: 20px;
     }
     @include tablet {
-        @include fluid-width($max:700,$min:335);
         padding-inline:clamp(20px,#{calc(100 / 1222*100)}vw,100px);
     }
 
@@ -69,25 +73,14 @@
                 gap: 20px;
                 align-items: center;
             } 
-            @include tablet {
-                display: flex;
-                flex-wrap: nowrap;
-                gap: 20px;
-                align-items: center;
-            } 
         }
     }
 
     &__comment {
+        width: 100%;
         margin-top: 12px;
 
         @include desktop {
-            margin-top: 0;
-            width: 280px;
-            white-space: normal;
-        } 
-
-        @include tablet {
             margin-top: 0;
             width: 280px;
             white-space: normal;

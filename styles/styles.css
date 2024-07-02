@@ -874,17 +874,23 @@ table td {
   }
 }
 
-#frame {
+#frame-stages-slider {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 335px;
   align-items: flex-start;
+  align-self: center;
 }
 @media (min-width: 1262px) {
-  #frame {
+  #frame-stages-slider {
     display: block;
     width: 100%;
+  }
+}
+@media ((min-width: 376px) and (max-width: 1261px)) {
+  #frame-stages-slider {
+    width: clamp(335px, 57.2831423895vw, 700px);
   }
 }
 
@@ -908,7 +914,6 @@ table td {
 }
 @media ((min-width: 376px) and (max-width: 1261px)) {
   .showed-stages-wrapper {
-    width: clamp(335px, 57.2831423895vw, 700px);
     padding-inline: clamp(20px, 8.1833060556vw, 100px);
   }
 }
@@ -948,25 +953,11 @@ table td {
     align-items: center;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
-  .stages__title--row {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    align-items: center;
-  }
-}
 .stages__comment {
+  width: 100%;
   margin-top: 12px;
 }
 @media (min-width: 1262px) {
-  .stages__comment {
-    margin-top: 0;
-    width: 280px;
-    white-space: normal;
-  }
-}
-@media ((min-width: 376px) and (max-width: 1261px)) {
   .stages__comment {
     margin-top: 0;
     width: 280px;
