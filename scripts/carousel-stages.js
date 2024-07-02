@@ -193,7 +193,7 @@ export const createSliderStages = () => {
 
     function showSlide() {
         console.log('sliderWidth', sliderWidth);
-        slider.style.transform = `translateX(-${currentSlideIndex * sliderWidth}px)`;
+        slider.style.transform = `translateX(-${currentSlideIndex * (sliderWidth+20)}px)`;
     }
 
     function changeSlide(slideIndex) {
