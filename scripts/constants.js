@@ -1,7 +1,9 @@
+// Screen Sizes
 export const MOBILE_SIZE = 375;
 export const TABLET_SIZE = 700;
 export const DESKTOP_SIZE = 1262;
 
+// Participants Block
 export const DATA_PERSONS = [
     {
         name: "Хозе-Рауль Капабланка",
@@ -43,6 +45,7 @@ export const DATA_PERSONS = [
 export const SET_PAGINATION_PARTICIPANTS = false;
 export const SET_COUNTER_PARTICIPANTS = true;
 
+// Stages Block
 export const DATA_STAGES = [
     [
         {

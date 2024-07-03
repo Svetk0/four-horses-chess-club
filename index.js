@@ -13,5 +13,8 @@ createCarouselButtons();
 createSliderParticipants();
 createSliderStages();
 
+document.addEventListener("DOMContentLoaded", utils.carouselSettings);
+
+
 
 
