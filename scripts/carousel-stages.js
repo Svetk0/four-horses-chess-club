@@ -1,58 +1,12 @@
 import { createDOMElem } from "./utils.js";
+import {
+    DATA_STAGES,
+    DESKTOP_SIZE
+}
+    from "./constants.js";
+
 // ---- CAROUSEL STAGES ----
-
-const dataStages = [
-    [
-        {
-            content: "Хозе-Строительство железнодорожной магистрали Москва-Васюки Капабланка",
-            order: "1",
-            combine: true,
-            [Symbol.isConcatSpreadable]: true,
-        },
-        {
-            content: "Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов",
-            order: "2",
-            combine: true,
-        }
-    ],
-    [
-        {
-        content: "Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет",
-        order: "3",
-        combine: false,
-        }
-    ],
-
-    [
-        {
-            content: "Строительство дворца для турнира",
-            order: "4",
-            combine: true,
-        },
-        {
-            content: "Размещение гаражей для гостевого автотранспорта",
-            order: "5",
-            combine: true,
-        }
-    ],
-    [
-        {
-        content: "Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов",
-        order: "6",
-        combine: false,
-        }
-    ],
-    [
-        {
-        content: "Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн",
-        order: "7",
-        combine: false,
-        }
-    ],
-
-
-];
-
+const dataStages = DATA_STAGES;
 let dataStagesDesktop = dataStages.reduce((card, current) =>
     card.concat(current), []
 );
@@ -106,30 +60,14 @@ const insertStageCards = (data, func) => {
         i++;
     }
 }
-
-const determineMediaScreen = () => {
-    let numActiveSlides = 1;
-    let windowInnerWidth = document.documentElement.clientWidth;
-
-    console.log('windowInnerWidth', windowInnerWidth);
-    if (windowInnerWidth < 701) {
-        numActiveSlides = 2;
-    }
-    if (windowInnerWidth > 700) {
-        numActiveSlides = 1;
-    }
-
-    return numActiveSlides;
-}
-
 // CREATE SLIDER STAGES
 export const createSliderStages = () => {
     
     let windowInnerWidth = document.documentElement.clientWidth;
-    if (windowInnerWidth < 1262) {
+    if (windowInnerWidth < DESKTOP_SIZE) {
         insertStageCards(dataStages, createStageCardMobile);
     }
-    if (windowInnerWidth > 1261) {
+    if (windowInnerWidth > (DESKTOP_SIZE-1)) {
         insertStageCards(dataStagesDesktop,createStageCardDesktop);
     }
     const slider = document.getElementById("slider-stages");

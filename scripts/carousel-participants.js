@@ -1,63 +1,32 @@
 import { createDOMElem } from "./utils.js";
+import {
+    DATA_PERSONS,
+    TABLET_SIZE,
+    DESKTOP_SIZE
+}
+    from "./constants.js";
 
 // ---- CAROUSEL PARTICIPANTS ----
 const pathImg = './images/participants/';
-const dataPersons = [
-    {
-        name: "Хозе-Рауль Капабланка",
-        rating: "Чемпион мира по шахматам",
-        img: "person-bg.png",
-        link:"#slider-participants",
-    },
-    {
-        name: "Эммануил Ласкер",
-        rating: "Чемпион мира по шахматам",
-        img: "person-bg.png",
-        link:"#slider-participants",
-    },
-    {
-        name: "Александр Алехин",
-        rating: "Чемпион мира по шахматам",
-        img: "person-bg.png",
-        link:"#slider-participants",
-    },
-    {
-        name: "Арон Нимцович",
-        rating: "Чемпион мира по шахматам",
-        img: "person-bg.png",
-        link:"#slider-participants",
-    },
-    {
-        name: "Рихард Рети",
-        rating: "Чемпион мира по шахматам",
-        img: "person-bg.png",
-        link:"#slider-participants",
-    },
-    {
-        name: "Остап Бендер",
-        rating: "Гроссмейстер",
-        img: "person-bg.png",
-        link:"#slider-participants",
-    },
-];
+
 // Определяем сколько карточек показывать в зависимости от ширины экрана
 const determineMediaScreen = () => {
     let numActiveSlides = 1;
     let windowInnerWidth = document.documentElement.clientWidth;
 
-    if (windowInnerWidth < 701) {
+    if (windowInnerWidth < (TABLET_SIZE + 1)) {
         numActiveSlides = 1;
     }
-    if (windowInnerWidth > 700) {
+    if (windowInnerWidth > TABLET_SIZE) {
         numActiveSlides = 2;
     }
-    if (windowInnerWidth > 1200) {
+    if (windowInnerWidth > DESKTOP_SIZE) {
         numActiveSlides = 3;
     }
     return numActiveSlides;
 }
 //Создаем карточку участника
-const createPersonCard = (i) => {
+const createPersonCard = (dataPersons, i) => {
     const divPerson = createDOMElem('div', 'person');
     const imgPerson = createDOMElem('img', 'person__img');
     const namePerson = createDOMElem('div', 'person__name');
@@ -69,7 +38,6 @@ const createPersonCard = (i) => {
     imgPerson.src = pathImg + dataPersons[i].img;
     namePerson.innerHTML = dataPersons[i].name;
     ratingPerson.innerHTML = dataPersons[i].rating;
-    //link.setAttribute('href', `${ dataPersons[i].link }-${i+1}`);
     link.setAttribute('href', dataPersons[i].link);
     link.innerHTML = 'Подробнее';
 
@@ -89,7 +57,7 @@ const insertPersonCards = (num) => {
     let i = 0;
     let cards = [];
     while (i < num) {
-        cards[i] = createPersonCard(i);
+        cards[i] = createPersonCard(DATA_PERSONS, i);
         cards.push(cards[i]);
         i++;
     }
@@ -115,18 +83,41 @@ const insertPersonCards = (num) => {
 const numShowedSlides = determineMediaScreen();
 export const createSliderParticipants = () => {
 
-    // COUNTER
+    // START PROGRAM
+    insertPersonCards(DATA_PERSONS.length);
+
+    const arrowLeft = document.querySelector("#participants-btn-left");
+    const arrowRight = document.querySelector("#participants-btn-right");
+    const slides = document.querySelectorAll(".showed-person-wrapper");
+    const pagination = document.querySelector("#pagination-participants");
+    const counter = document.querySelector("#counter-participants");
+
+    const counterIndex = createDOMElem('div', 'counter__index');
+    const counterLength = createDOMElem('div', 'counter__length');
+
+    let currentSlideIndex = 0;
+    const paginationCircles = [];
+    slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
+
+    createCounter();
+    indicateCurrentSlide();
+    addPagination();
+    arrowLeft.addEventListener("click", previousSlide);
+    arrowRight.addEventListener("click", nextSlide);
+    setInterval(nextSlide, 4000);
+
+    //------------------------- COUNTER --------------------
     function createCounter() {
         counter.appendChild(counterIndex);
         counter.appendChild(counterLength);
     }
 
     function indicateCurrentSlide() {
-        counterIndex.textContent = ((currentSlideIndex + 1)*numShowedSlides);
-        counterLength.textContent = '/' + (numShowedSlides*slides.length);
+        counterIndex.textContent = ((currentSlideIndex + 1) * numShowedSlides);
+        counterLength.textContent = '/' + (numShowedSlides * slides.length);
     }
 
-    // PAGINATION
+//------------------------- PAGINATION --------------------
     function createPaginationCircle() {
         const div = createDOMElem('div', 'pagination__circle');
         pagination.appendChild(div);
@@ -141,7 +132,7 @@ export const createSliderParticipants = () => {
         });
     }
 
-    // CAROUSEL
+ //------------------------- SLIDER --------------------
     function addActiveClass() {
         paginationCircles[currentSlideIndex].classList.add("pagination--active");
         slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
@@ -174,28 +165,4 @@ export const createSliderParticipants = () => {
         }
         changeSlide(newSlideIndex);
     }
-
-    // START PROGRAM
-    //const numShowedSlides = determineMediaScreen();
-    insertPersonCards(dataPersons.length);
-
-    const arrowLeft = document.querySelector("#participants-btn-left");
-    const arrowRight = document.querySelector("#participants-btn-right");
-    const slides = document.querySelectorAll(".showed-person-wrapper");
-    const pagination = document.querySelector("#pagination-participants");
-    const counter = document.querySelector("#counter-participants");
-
-    const counterIndex = createDOMElem('div', 'counter__index');
-    const counterLength = createDOMElem('div', 'counter__length');
-
-    let currentSlideIndex = 0;
-    const paginationCircles = [];
-    slides[currentSlideIndex].classList.add("showed-person-wrapper--active");
-
-    createCounter();
-    indicateCurrentSlide();
-    addPagination();
-    arrowLeft.addEventListener("click", previousSlide);
-    arrowRight.addEventListener("click", nextSlide);
-    setInterval(nextSlide, 4000);
 }
