@@ -1,17 +1,20 @@
 .hero {
- @include fluid-width(542,335);
+  @include fluid-width(542, 335);
   margin-top: 40px;
   padding-bottom: 291px;
   display: flex;
   flex-direction: column;
+  margin-inline:auto;
 
   @include desktop {
     margin-top: 62px;
     padding-bottom: 132px;
+    margin-inline:0;
   }
 
   @include tablet {
     padding-bottom: 132px;
+    margin-inline:0;
   }
 
   &__title {
@@ -46,8 +49,7 @@
     margin: 40px 0;
 
     @include tablet {
-       flex-direction: column;
-      
+      flex-direction: column;
       align-items: center;
     }
   }

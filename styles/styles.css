@@ -237,7 +237,7 @@ svg * {
   overflow: hidden !important;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   .hidden-mobile {
     display: none !important;
   }
@@ -258,7 +258,7 @@ body {
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   .container {
     padding-inline: clamp(var(--container-padding-x), 3vw, 40px);
   }
@@ -506,7 +506,7 @@ h4, .h4 {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   .introduction {
     background-image: url("../images/bg-title-mobile.png");
     min-height: 812px;
@@ -526,7 +526,7 @@ h4, .h4 {
 .header {
   padding-top: 26px;
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   .header {
     padding-top: 18px;
   }
@@ -535,7 +535,7 @@ h4, .h4 {
   width: 245px;
   height: 36px;
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   .header__logo {
     max-width: 213px;
     max-height: 32px;
@@ -563,7 +563,7 @@ h4, .h4 {
     padding-block: 40px 72px;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   .footer__text {
     width: 100%;
     padding-block: 40px 72px;
@@ -577,16 +577,19 @@ h4, .h4 {
   padding-bottom: 291px;
   display: flex;
   flex-direction: column;
+  margin-inline: auto;
 }
 @media (min-width: 1262px) {
   .hero {
     margin-top: 62px;
     padding-bottom: 132px;
+    margin-inline: 0;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   .hero {
     padding-bottom: 132px;
+    margin-inline: 0;
   }
 }
 .hero__title {
@@ -617,7 +620,7 @@ h4, .h4 {
   gap: 14px;
   margin: 40px 0;
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   .hero__buttons-wrapper {
     flex-direction: column;
     align-items: center;
@@ -772,7 +775,7 @@ table {
   line-height: 24px;
   font-weight: 600;
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   table {
     margin-top: 20px;
   }
@@ -780,7 +783,7 @@ table {
 table tr {
   height: 56px;
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   table tr {
     width: 100%;
     display: inline-block;
@@ -788,7 +791,7 @@ table tr {
     vertical-align: middle;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   table tr {
     width: 100%;
     display: inline-block;
@@ -808,7 +811,7 @@ table td {
   padding-block: auto;
   text-align: left;
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   table th,
   table td {
     display: inline;
@@ -818,7 +821,7 @@ table td {
     padding-inline: 6px;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   table th,
   table td {
     display: inline;
@@ -864,12 +867,12 @@ table td {
 .border-none tr th:last-child {
   border-right: none;
 }
-@media (max-width: 375px) {
+@media (max-width: 450px) {
   .border-none tr:last-child {
     border-bottom: none;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   .border-none tr:last-child {
     border-bottom: none;
   }
@@ -889,7 +892,7 @@ table td {
     width: 100%;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   #frame-stages-slider {
     width: clamp(335px, 53.1914893617vw, 650px);
   }
@@ -913,7 +916,7 @@ table td {
     padding: 20px;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   .showed-stages-wrapper {
     padding-inline: clamp(20px, 6.5466448445vw, 80px);
   }
@@ -1115,7 +1118,7 @@ table td {
     width: 394px;
   }
 }
-@media ((min-width: 376px) and (max-width: 1261px)) {
+@media ((min-width: 451px) and (max-width: 1261px)) {
   .participants .person {
     width: 335px;
   }
