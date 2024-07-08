@@ -23,10 +23,10 @@
     & span {
       display: block;
       text-align: center;
-    }
 
-    & p {
-      text-align: right;
+      & span {
+        text-align: right;
+      }
     }
   }
 
