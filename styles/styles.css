@@ -527,7 +527,7 @@ h4, .h4 {
 }
 .introduction__running-line {
   position: absolute;
-  bottom: -10px;
+  bottom: -4px;
   z-index: 9999;
 }
 
